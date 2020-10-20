@@ -1,0 +1,28 @@
+{
+  "name": "social_petwork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sophia2798/social_petwork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sophia2798/social_petwork/issues"
+  },
+  "homepage": "https://github.com/sophia2798/social_petwork#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  }
+}
