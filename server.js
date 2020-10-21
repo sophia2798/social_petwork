@@ -44,11 +44,20 @@ app.use(session({
 
 // Routes
 // =============================================================
-require("./routes/routes.js")(app);
+// require("./routes/routes.js")(app);
+
+const authRoutes = require("./controllers/authController");
+app.use(authRoutes);
+
+const frontendRoutes = require("./controllers/frontendController");
+app.use(frontendRoutes);
+
+const petRoutes = require("./controllers/petController");
+app.use("/api/pets",petRoutes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
