@@ -25,6 +25,14 @@ router.get("/signup",(req,res) => {
     res.render("signup",{user:req.session.user})
 });
 
+router.get("/favorites",(req,res) => {
+    res.render("favorites",{user:req.session.user})
+});
+
+router.get("/petwork",(req,res) => {
+    res.render("petwork",{user:req.session.user})
+});
+
 router.get("/myprofile",(req,res)=> {
     if (req.session.user) {
         db.User.findOne({

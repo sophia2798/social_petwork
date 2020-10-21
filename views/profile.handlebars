@@ -1,14 +1,13 @@
 <h1>Welcome to Your Page, {{user.email}}</h1>
 <br>
 
-{{#each user.Pet}}
-<div class="card">
+{{#each user.Pets}}
     <h3>{{name}}</h3>
     {{!-- <h3>Owner: {{User.email}}</h3> --}}
     <h3>Gender: {{gender}}</h3>
     <h3>Color: {{color}}</h3>
     <h3>Vaccinated: {{vaccinated}}</h3>
     <h3>Hobbies: {{hobbies}}</h3>
+    <hr>
     {{!-- <a href="/turtles/edit/{{id}}"><button>Edit</button></a> <button class="delTurtleBtn" data-turtleid={{id}}>Delete</button> --}}
-</div>
 {{/each}}
