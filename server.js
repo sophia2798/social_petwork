@@ -7,6 +7,9 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 
+// Set up dotenv to hide session secret
+require("dotenv").config();
+
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -25,6 +28,19 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
+
+// Set up for user authentication
+const bcrypt = require("bcrypt");
+const session = require("express-session");
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 2*60*60*1000
+  }
+}));
 
 // Routes
 // =============================================================
