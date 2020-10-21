@@ -7,12 +7,13 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
   
-    breed.associate = function(models) {
+    petType.associate = function(models) {
      // breed cannot be made without existing pet
-      petType.belongsTo(models.Pet, {
+      petType.hasMany(models.breed, {
         foreignKey: {
           allowNull: false
         }
       });
-    };
+  };
+  return petType
   };

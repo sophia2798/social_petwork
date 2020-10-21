@@ -10,7 +10,7 @@ module.exports = function (sequelize, DataTypes) {
   
     breed.associate = function(models) {
      // breed cannot be made without existing pet
-      breed.belongsTo(models.Pet, {
+      breed.belongsTo(models.type, {
         foreignKey: {
           allowNull: false
         }
