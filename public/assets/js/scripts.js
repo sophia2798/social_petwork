@@ -61,10 +61,18 @@ $("#editPetForm").on("submit", event => {
     })
 });
 
+// Initialize slider on main page with options
 $(document).ready(function() {
     $(".slider").slider({
         indicators: false,
         interval: 5000,
         duration: 1500
     });
+});
+
+$("#navigation-btn-back").click(function() {
+    $(".slider").slider("prev");
+});
+$("#navigation-btn-forward").click(function() {
+    $(".slider").slider("next");
 });

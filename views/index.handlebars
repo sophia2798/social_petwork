@@ -1,19 +1,23 @@
-<header>
+<header style="position:relative">
   <div class="slider">
     <ul class="slides">
       <li>
-        <img src="/assets/images/header1.jpg" alt="slider photo 1"> <!-- random image -->
+        <img class="responsive-img" src="/assets/images/header1.jpg" alt="slider photo 1"> <!-- random image -->
       </li>
       <li>
-        <img src="/assets/images/header2.jpeg" alt="slider photo 2"> <!-- random image -->
+        <img class="responsive-img" src="/assets/images/header2.jpeg" alt="slider photo 2"> <!-- random image -->
       </li>
       <li>
-        <img src="/assets/images/header5.png" alt="slider photo 3"> <!-- random image -->
+        <img class="responsive-img" src="/assets/images/header5.png" alt="slider photo 3"> <!-- random image -->
       </li>
       <li>
-        <img src="/assets/images/header6.jpg" alt="slider photo 4"> <!-- random image -->
+        <img class="responsive-img" src="/assets/images/header6.jpg" alt="slider photo 4"> <!-- random image -->
       </li>
     </ul>
+  </div>
+  <div class="arrows-wrapper">
+      <button style="float:left;background:none !important;border:none !important" id="navigation-btn-back"><i style="color:white" class = "small material-icons">arrow_back</i></button>
+      <button style="float:right;background:none !important;border:none !important" id="navigation-btn-forward"><i style="color:white" class = "small material-icons">arrow_forward</i></button>
   </div>
 </header>
 
@@ -26,3 +30,78 @@
         </table>
     </div>
 </section>
+
+<section class="main-wrapper row">
+    <article class="info-wrapper col s9">
+        <div class="row info-sections" id="info-section1">
+            <img class="info-pics" src="/assets/images/infopic1.jpg" alt="dog in grass" width="200" style="float:left;margin-right:1rem">
+            <div class="info-text">
+                <h4>Does Your Furry Friend Need a Friend?</h4>
+                <p>Have you just moved to a new city? Did you just get your first pet? Does your pet seem lonely during quarantine? If you answered yes to any of these questions, The Social Petwork can help you and your beloved pet! Search through local pets and schedule playdates, hikes, walks, or any other pet friendly activity with their owners &#9829;</p>
+            </div>
+        </div>
+        <div class="row info-sections" id="info-section2">
+            <img class="info-pics" src="/assets/images/infopic2.jpg" alt="cats playing" width="200" style="float:right;margin-left:1rem">
+            <div class="info-text">
+                <h4>It's a Network for Pet Owners Too</h4>
+                <p style="margin-bottom:0">Although The Social Petwork mainly revolves around connecting pets with each other (they're social creatures too!) owners can utilize this application to meet fellow and local animal lovers! Your pets may be the ones playing at the meetups, but owners can also take advantage of the social opportunity and get to know others who already share a common interest in animals! Owners can share stories, tips, store/vet/food recommendations with each other upon meeting.</p>
+            </div>
+        </div>
+        <div class="row info-sections" id="info-section3">
+            <img class="info-pics" src="/assets/images/infopic3.jpg" alt="dog being pet" width="200" style="float:left;margin-right:1rem">
+            <div class="info-text">
+                <h4>Make an Account</h4>
+                <p>Make sure to make an account on The Social Petwork. Simply input your full name, e-mail address, a password, and your zip code. Once your account is created, you can view pets in your area! You can also save "Favorited" pets on your account. They can be viewed at anytime from the "Favorites" page.</p>
+            </div>
+        </div>
+    </article>
+    <aside class="features-wrapper col s3">
+        <div class="aside-content">
+          <div id="features-title">
+            <h4 style="margin:0 !important; text-align:center">Features</h4>
+          </div>
+          <table style="vertical-align:middle; width:100%; table-layout:fixed">
+            <tr>
+              <th style="width:15%"></th>
+              <th style="width: 85%"></th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><i class="small material-icons">star</i></td>
+              <td>Favorite a Pet to save it to your Favorites page, which can be viewed at anytime!</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><i class="small material-icons">email</i></td>
+              <td>Click on "Connect with Pet" to email the owner and set up a meet!</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><i class="small material-icons">edit</i></td>
+              <td>Edit your own or your pet's information at anytime!</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><i class="small material-icons">add_a_photo</i></td>
+              <td>Upload a profile picture of your pet so other users can see your adorable pet!</td>
+            </tr>
+          </table>
+        </div>
+    </aside>
+</section>
+
+<footer>
+  <small>The Social Petwork by Katie Dickson, Chris Sison, Evan Kirkland, Mercury Springberry, and Sophia Jung &#169;</small>
+</footer>

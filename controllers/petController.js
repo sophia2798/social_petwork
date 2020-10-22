@@ -12,6 +12,7 @@ router.post('/', (req,res) => {
             profilePic:req.body.profilePic,
             vaccinated:req.body.vaccinated,
             hobbies:req.body.hobbies,
+            breed:req.body.breed,
             UserId:req.session.user.id
         }).then(newPet=>{
             res.json(newPet)
@@ -76,6 +77,7 @@ router.put("/:id", (req,res) =>{
                     color:req.body.color,
                     vaccinated:req.body.vaccinated,
                     hobbies:req.body.hobbies,
+                    breed:req.body.breed
                 },{
                     where: {
                         id:req.params.id
@@ -96,40 +98,21 @@ router.put("/:id", (req,res) =>{
     }
 });
 
-router.get("/zip/:zip", function (req, res) {
-    db.User.findAll({
-        attributes: { exclude: ['createdAt', 'updatedAt'] },
-        include: [{
-            attributes: { exclude: ['createdAt', 'updatedAt'] },
-            model: db.Pet,
-            include: [{
-                attributes: { exclude: ['createdAt', 'updatedAt'] },
-                model: db.type,
-            }, {
 
-                attributes: { exclude: ['createdAt', 'updatedAt'] },
-                model: db.breed
-            }]
-        },
-        ],
-        where: {
-            zip: req.params.zip
+router.get("/zip/:zip", function (req, res) {
+    db.Pet.findAll({
+        attributes: { exclude: ['createdAt', 'updatedAt'] },
+        include: {
+            attributes: { exclude: ['createdAt', 'updatedAt'] },
+            model: db.User,
+            where: {
+                zip:req.params.zip
+            }
         }
     }).then(result => {
         res.send(result)
     })
 })
 
-router.get("/type", function (req, res) {
-    db.type.findAll({attributes: { exclude: ['createdAt', 'updatedAt'] }}).then(function (dbTypes) {
-        res.json(dbTypes);
-    });
-});
-
-router.get("/breed", function (req, res) {
-    db.breed.findAll({attributes: { exclude: ['createdAt', 'updatedAt'] }}).then(function (dbBreeds) {
-        res.json(dbBreeds);
-    });
-})
 
 module.exports = router;

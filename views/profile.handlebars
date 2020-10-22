@@ -1,22 +1,54 @@
-<h1>Welcome to Your Page, {{user.first_name}} {{user.last_name}}</h1>
-<a href="/newpet"><button>Add Pet!</button></a>
-<br>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="user__profile center-align">
+            <div class="pet__info">
+                <img class="avatar" src="https://images.pexels.com/photos/2820134/pexels-photo-2820134.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                <h5>{{name}}</h5>
+                <p>Gender: {{gender}}</p>
+                <p>Age: {{age}}</p>
+                <p>Color: {{color}}</p>
+                <p>Vaccinated: {{vaccinated}}</p>
+                <p>Hobbies: {{hobbies}}</p>
+                <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small" >Edit</a>
+                <button class="delPetBtn waves-effect waves-light btn-small" data-petid={{id}}>Delete</button>
+            </div>
+        </div>
+    </div>
+    <div class="picture__album row">
+        <div class="pictureAlbum__top">
+            <div class="album__title col s12">
+                <h3 class="center-align">Photos</h3>
+            </div>
+        </div>
+        <div class="pictureAlbum__bottom row">
+            <div class="col s12 center-align">
+                <img class="picture" src="" alt="">
 
-{{#each user.Pets}}
-<div class="row">
-<div class="col s12 m6">
-    <div class="card light-green lighten-3">
-        <div class="card-content">
-            <span style="font-weight:bold" class="card-title">{{name}}</span>
-            {{!-- <h3>Owner: {{User.email}}</h3> --}}
-            <p>Gender: {{gender}}</p>
-            <p>Age: {{age}}</p>
-            <p>Color: {{color}}</p>
-            <p>Vaccinated: {{vaccinated}}</p>
-            <p>Hobbies: {{hobbies}}</p>
-            <a href="/pets/edit/{{id}}"><button>Edit</button></a> <button class="delPetBtn" data-petid={{id}}>Delete</button>
+                <img class="picture" src="" alt="">
+
+                <img class="picture" src="" alt="">
+            </div>
         </div>
     </div>
 </div>
-</div>
-{{/each}}
+    <div class="user__description row">
+            <div class="user">
+                <div class="user__top">
+                    <img class="user__picture responsive-img circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnxMYq7EN3zM-cVRUOxBq5r2rIrYBepIpyAA&usqp=CAU" alt="">
+                    <div class="userTop__info">
+                        <h3>{{user.first_name}} {{user.email}}</h3>
+                    </div>
+                </div>
+                <div class="user__bottom">
+                    <p>
+                        Hi! My name is {{user.first_name}} and this is my dog {{name}}. We just moved here from NYC and are looking for some friends to meet up for play dates!
+                    </p>
+                </div>
+            </div>
+        </div>
+</body>
+
+{{!-- {{#each user.Pets}}
+
+{{/each}} --}}
