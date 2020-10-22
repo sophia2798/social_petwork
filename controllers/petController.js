@@ -94,4 +94,68 @@ router.put("/:id", (req,res) =>{
     }
 });
 
+// User update section
+router.put("/:id", (req, res) => {
+    if (req.session.user) {
+        db.User.fineOne({
+            where: {
+                id:req.params.id
+            }
+        }).then(user => {
+            if (!user) {
+                returnres.status(404).send("User does not exist")
+            }
+            else if (user.UserId === req.session.user.id) {
+                db.User.update({
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    email: req.body.email,
+                    password: req.body.password,
+                    zip: req.body.zip
+
+                }, {
+                        where: {
+                        id:req.params.id
+                    }
+                }).then(editUser => {
+                    res.json(editUser);
+                }).catch(err => {
+                    res.status(500).send("Error! Could not update")
+                })
+            } else {
+                res.status(401).send('incorrect account info')
+            }
+        })
+    } else {
+        res.status(401).send("Please log in.")
+    }
+})
+
+// User delete section
+router.delete("/:id", (req,res) =>{
+    if (req.session.user) {
+        db.User.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(user => {
+            if (user.UserId === req.session.user.id) {
+                db.User.destroy({
+                    where: {
+                        id:req.params.id
+                    }
+                }).then(delUser => {
+                    res.json(delUser)
+                })
+            }
+            else {
+                res.status(401).send("You do not have permission to delete this account.")
+            }
+        })
+    }
+    else {
+        res.status(401).send("not logged in")
+    }
+});
+
 module.exports = router;
