@@ -105,3 +105,54 @@ th {
     font-size: 2rem;
     color: #4c2b00
 }
+
+.arrows-wrapper {
+    position: absolute;
+    bottom: 50%;
+    z-index: 2;
+    width: 100%;
+}
+
+.main-wrapper {
+    margin: 0 1rem !important;
+    display: flex;
+}
+
+.info-wrapper {
+    background: rgb(130,237,166,0.5);
+    border: 10px double white;
+    font-family: "Quicksand", sans-serif;
+}
+
+.info-sections {
+    padding: 1rem;
+    margin-bottom: 0 !important;
+}
+
+#info-section1, #info-section3 {
+    background: rgb(252,247,232,0.4)
+}
+
+.info-pics {
+    border: 2px solid white;
+}
+
+.features-wrapper {
+    padding-left: 0.5rem;
+    font-family: "Quicksand",sans-serif
+}
+
+.aside-content {
+    background: rgb(130,237,166,0.5);
+    padding: 0.5rem;
+    padding-top: 2rem;
+    border: 10px double white;
+    min-height: 100%;
+}
+
+footer {
+    margin-top: 1rem;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    background: rgb(130,237,166,0.7);
+}
