@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
         color: {
             type: DataTypes.STRING
         },
-        vacinated: {
+        vaccinated: {
             type: DataTypes.BOOLEAN
         },
         hobbies: {
@@ -35,12 +35,12 @@ module.exports = function (sequelize, DataTypes) {
         });
     };
     
-    Pet.associate = function (models) {
-        Pet.belongsTo(models.breed, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
+    // Pet.associate = function (models) {
+    //     Pet.belongsTo(models.breed, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
     return Pet
 };

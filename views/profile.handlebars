@@ -1,0 +1,22 @@
+<h1>Welcome to Your Page, {{user.first_name}} {{user.last_name}}</h1>
+<a href="/newpet"><button>Add Pet!</button></a>
+<br>
+
+{{#each user.Pets}}
+<div class="row">
+<div class="col s12 m6">
+    <div class="card light-green lighten-3">
+        <div class="card-content">
+            <span style="font-weight:bold" class="card-title">{{name}}</span>
+            {{!-- <h3>Owner: {{User.email}}</h3> --}}
+            <p>Gender: {{gender}}</p>
+            <p>Age: {{age}}</p>
+            <p>Color: {{color}}</p>
+            <p>Vaccinated: {{vaccinated}}</p>
+            <p>Hobbies: {{hobbies}}</p>
+            <a href="/pets/edit/{{id}}"><button>Edit</button></a> <button class="delPetBtn" data-petid={{id}}>Delete</button>
+        </div>
+    </div>
+</div>
+</div>
+{{/each}}

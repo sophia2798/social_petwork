@@ -1,0 +1,29 @@
+body {
+    background-color: whitesmoke;
+}
+
+#logo {
+    height: 100%;
+    margin-left: 1rem;
+}
+
+nav {
+    height: 5rem;
+    background-color: rgb(130,237,166,0.7);
+    padding: 0 1% 0 0;
+}
+
+ul {
+    height: 100%;
+}
+
+li {
+    height: 100%;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #666;
+    background: none !important;
+}
+
