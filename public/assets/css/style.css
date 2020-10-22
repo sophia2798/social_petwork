@@ -1,5 +1,65 @@
 body {
-    background-color: whitesmoke;
+    background-color: rgb(248, 248, 248);
+}
+
+.profile__picture {
+    display: flex;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    margin: 40px 40px 40px 40px;
+    border-radius: 50%;
+}
+
+.picture:hover{
+    transform: scale(1.05);
+}
+
+.user__description {
+    display: flex;
+    width: 87%;
+    padding: 40px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 5px 8px -9px black;
+}
+
+.user__picture {
+    display: flex;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+    border-radius: 50%;
+}
+
+.user__top {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 5px;
+}
+
+.userTop__info > h3 {
+    font-size: medium;
+    color: rgb(104, 97, 97);
+}
+
+.picture {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(202, 201, 201);
+    width: 260px;
+    height: 200px;
+    box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    margin: 5px;
+    transition: transform 100ms ease-in;
+    cursor: pointer;
 }
 
 #logo {
@@ -45,3 +105,70 @@ th {
     font-size: 2rem;
     color: #4c2b00
 }
+
+
+#form{
+  width: 380px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 30px;
+};
+
+
+
+.arrows-wrapper {
+    position: absolute;
+    bottom: 50%;
+    z-index: 2;
+    width: 100%;
+}
+
+.main-wrapper {
+    margin: 0 1rem !important;
+    display: flex;
+}
+
+.info-wrapper {
+    background: rgb(130,237,166,0.5);
+    border: 10px double white;
+    font-family: "Quicksand", sans-serif;
+}
+
+.info-sections {
+    padding: 1rem;
+    margin-bottom: 0 !important;
+}
+
+#info-section1, #info-section3 {
+    background: rgb(252,247,232,0.4)
+}
+
+.info-pics {
+    border: 2px solid white;
+}
+
+.features-wrapper {
+    padding-left: 0.5rem;
+    font-family: "Quicksand",sans-serif
+}
+
+.aside-content {
+    background: rgb(130,237,166,0.5);
+    padding: 0.5rem;
+    padding-top: 2rem;
+    border: 10px double white;
+    min-height: 100%;
+}
+
+footer {
+    margin-top: 1rem;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    background: rgb(130,237,166,0.7);
+}
+
