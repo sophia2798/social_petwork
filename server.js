@@ -44,7 +44,7 @@ app.use(session({
 
 // Routes
 // =============================================================
-// require("./routes/routes.js")(app);
+require("./routes/routes.js")(app);
 
 const authRoutes = require("./controllers/authController");
 app.use(authRoutes);

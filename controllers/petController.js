@@ -9,6 +9,7 @@ router.post('/', (req,res) => {
             gender:req.body.gender,
             age:req.body.age,
             color:req.body.color,
+            profilePic:req.body.profilePic,
             vaccinated:req.body.vaccinated,
             hobbies:req.body.hobbies,
             UserId:req.session.user.id
@@ -71,6 +72,7 @@ router.put("/:id", (req,res) =>{
                     name:req.body.name,
                     gender:req.body.gender,
                     age:req.body.age,
+                    profilePic:req.body.profilePic,
                     color:req.body.color,
                     vaccinated:req.body.vaccinated,
                     hobbies:req.body.hobbies,
@@ -93,5 +95,41 @@ router.put("/:id", (req,res) =>{
         res.status(401).send("not logged in")
     }
 });
+
+router.get("/zip/:zip", function (req, res) {
+    db.User.findAll({
+        attributes: { exclude: ['createdAt', 'updatedAt'] },
+        include: [{
+            attributes: { exclude: ['createdAt', 'updatedAt'] },
+            model: db.Pet,
+            include: [{
+                attributes: { exclude: ['createdAt', 'updatedAt'] },
+                model: db.type,
+            }, {
+
+                attributes: { exclude: ['createdAt', 'updatedAt'] },
+                model: db.breed
+            }]
+        },
+        ],
+        where: {
+            zip: req.params.zip
+        }
+    }).then(result => {
+        res.send(result)
+    })
+})
+
+router.get("/type", function (req, res) {
+    db.type.findAll({attributes: { exclude: ['createdAt', 'updatedAt'] }}).then(function (dbTypes) {
+        res.json(dbTypes);
+    });
+});
+
+router.get("/breed", function (req, res) {
+    db.breed.findAll({attributes: { exclude: ['createdAt', 'updatedAt'] }}).then(function (dbBreeds) {
+        res.json(dbBreeds);
+    });
+})
 
 module.exports = router;
