@@ -60,3 +60,11 @@ $("#editPetForm").on("submit", event => {
         window.location.href="/myprofile"
     })
 });
+
+$(document).ready(function() {
+    $(".slider").slider({
+        indicators: false,
+        interval: 5000,
+        duration: 1500
+    });
+});

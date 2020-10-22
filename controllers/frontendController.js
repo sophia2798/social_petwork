@@ -3,18 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 router.get('/', (req, res) => {
-    db.Pet.findAll({
-        include:[db.User]
-    }).then(pets=>{
-        const petsJSON = pets.map(turtObj => {
-            return turtObj.toJSON();
-        })
-        const hbsObj = {
-            user: req.session.user,
-            pets:petsJSON
-        }
-        res.render("index",hbsObj);
-    })
+    res.render("index");
 });
 
 router.get("/login",(req,res) => {
