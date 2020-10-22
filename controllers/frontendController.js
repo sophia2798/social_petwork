@@ -3,7 +3,8 @@ const router = express.Router();
 const db = require("../models");
 
 router.get('/', (req, res) => {
-    res.render("index");
+    const hbsObj = {user: req.session.user}
+    res.render("index",hbsObj);
 });
 
 router.get("/login",(req,res) => {
