@@ -13,11 +13,7 @@ nav {
     padding: 0 1% 0 0;
 }
 
-ul {
-    height: 100%;
-}
-
-li {
+.nav-links {
     height: 100%;
     font-weight: bold;
 }
@@ -27,3 +23,25 @@ a:hover {
     background: none !important;
 }
 
+.title {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+#title-wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+tr {
+    border-bottom: none !important
+}
+
+th {
+    font-weight: normal;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    color: #4c2b00
+}
