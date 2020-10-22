@@ -55,6 +55,7 @@ th {
 
 .main-wrapper {
     margin: 0 1rem !important;
+    display: flex;
 }
 
 .info-wrapper {
@@ -78,5 +79,13 @@ th {
 
 .features-wrapper {
     padding-left: 0.5rem;
-    background: rgb(252,247,232)
+    font-family: "Quicksand",sans-serif
+}
+
+.aside-content {
+    background: rgb(130,237,166,0.5);
+    padding: 0.5rem;
+    padding-top: 2rem;
+    border: 10px double white;
+    min-height: 100%;
 }
