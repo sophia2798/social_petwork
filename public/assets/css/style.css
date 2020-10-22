@@ -149,3 +149,10 @@ th {
     border: 10px double white;
     min-height: 100%;
 }
+
+footer {
+    margin-top: 1rem;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    background: rgb(130,237,166,0.7);
+}
