@@ -50,5 +50,28 @@ th {
     position: absolute;
     bottom: 50%;
     z-index: 2;
-    width: 100vw;
+    width: 100%;
+}
+
+.main-wrapper {
+    margin: 0 1rem !important;
+}
+
+.info-wrapper {
+    background: rgb(130,237,166,0.5);
+    border: 10px double white;
+    font-family: "Quicksand", sans-serif;
+}
+
+.info-sections {
+    padding: 1rem;
+    margin-bottom: 0 !important;
+}
+
+#info-section1, #info-section3 {
+    background: rgb(252,247,232,0.4)
+}
+
+.info-pics {
+    border: 2px solid white;
 }
