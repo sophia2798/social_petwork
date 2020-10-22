@@ -6,7 +6,10 @@ const bcrypt = require("bcrypt");
 router.post('/signup', (req, res) => {
     db.User.create({
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        zip: req.body.zip
     }).then(newUser => {
         req.session.user = {
             email: newUser.email,

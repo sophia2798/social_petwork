@@ -50,5 +50,14 @@ router.get("/myprofile",(req,res)=> {
     }
 });
 
+router.get("/newpet", (req,res) => {
+    if (req.session.user) {
+        res.render("createPet", {user: req.session.user});
+    }
+    else {
+        res.redirect("/login")
+    }
+});
+
 
 module.exports = router;

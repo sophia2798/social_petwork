@@ -1,13 +1,21 @@
-<h1>Welcome to Your Page, {{user.email}}</h1>
+<h1>Welcome to Your Page, {{user.first_name}} {{user.last_name}}</h1>
+<a href="/newpet"><button>Add Pet!</button></a>
 <br>
 
 {{#each user.Pets}}
-    <h3>{{name}}</h3>
-    {{!-- <h3>Owner: {{User.email}}</h3> --}}
-    <h3>Gender: {{gender}}</h3>
-    <h3>Color: {{color}}</h3>
-    <h3>Vaccinated: {{vaccinated}}</h3>
-    <h3>Hobbies: {{hobbies}}</h3>
-    <hr>
-    {{!-- <a href="/turtles/edit/{{id}}"><button>Edit</button></a> <button class="delTurtleBtn" data-turtleid={{id}}>Delete</button> --}}
+<div class="row">
+<div class="col s12 m6">
+    <div class="card light-green lighten-3">
+        <div class="card-content">
+            <span style="font-weight:bold" class="card-title">{{name}}</span>
+            {{!-- <h3>Owner: {{User.email}}</h3> --}}
+            <p>Gender: {{gender}}</p>
+            <p>Color: {{color}}</p>
+            <p>Vaccinated: {{vaccinated}}</p>
+            <p>Hobbies: {{hobbies}}</p>
+            {{!-- <a href="/turtles/edit/{{id}}"><button>Edit</button></a> <button class="delTurtleBtn" data-turtleid={{id}}>Delete</button> --}}
+        </div>
+    </div>
+</div>
+</div>
 {{/each}}
