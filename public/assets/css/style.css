@@ -172,3 +172,10 @@ footer {
     background: rgb(130,237,166,0.7);
 }
 
+input[type=submit] {
+    background-color: rgb(111,199,141);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
