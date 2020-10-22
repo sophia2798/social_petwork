@@ -12,10 +12,15 @@ module.exports = function (sequelize, DataTypes) {
                 isAlpha: true
             }
         },
+        profilePic: {
+            type: DataTypes.STRING,
+        },
+        breed: {
+            type: DataTypes.STRING
+        },
         age: {
             type: DataTypes.INTEGER
         },
-
         color: {
             type: DataTypes.STRING
         },
@@ -35,12 +40,5 @@ module.exports = function (sequelize, DataTypes) {
         });
     };
     
-    // Pet.associate = function (models) {
-    //     Pet.belongsTo(models.breed, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // };
     return Pet
 };
