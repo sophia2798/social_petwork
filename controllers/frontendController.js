@@ -59,5 +59,31 @@ router.get("/newpet", (req,res) => {
     }
 });
 
+router.get("/pets/edit/:id", (req,res) => {
+    if (req.session.user) {
+        db.Pet.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(pet => {
+            if (!pet) {
+                res.send("This pet does not exist in that database!")
+            }
+            else if (pet.UserId === req.session.user.id) {
+                const petJSON = pet.toJSON();
+                res.render("editPet", {
+                    user: req.session.user,
+                    pet: petJSON
+                })
+            }
+            else {
+                res.status(401).send("You cannot edit a pet that is not yours")
+            }
+        })
+    }
+    else {
+        res.status(401).send("not logged in")
+    }
+});
 
 module.exports = router;
