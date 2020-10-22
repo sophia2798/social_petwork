@@ -75,3 +75,8 @@ th {
 .info-pics {
     border: 2px solid white;
 }
+
+.features-wrapper {
+    padding-left: 0.5rem;
+    background: rgb(252,247,232)
+}
