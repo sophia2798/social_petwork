@@ -98,6 +98,7 @@ router.put("/:id", (req,res) =>{
     }
 });
 
+
 router.get("/zip/:zip", function (req, res) {
     db.Pet.findAll({
         attributes: { exclude: ['createdAt', 'updatedAt'] },
@@ -112,5 +113,6 @@ router.get("/zip/:zip", function (req, res) {
         res.send(result)
     })
 })
+
 
 module.exports = router;
