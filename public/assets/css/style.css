@@ -45,3 +45,10 @@ th {
     font-size: 2rem;
     color: #4c2b00
 }
+
+.arrows-wrapper {
+    position: absolute;
+    bottom: 50%;
+    z-index: 2;
+    width: 100vw;
+}
