@@ -9,6 +9,7 @@ $("#createPetForm").on("submit", event => {
         gender:$("#petGender").val(),
         age:$("#petAge").val(),
         color:$("#petColor").val(),
+        breed:$("#petBreed").val(),
         vaccinated:$("#petVaccinated").val(),
         hobbies:$("#petHobbies").val(),
     };
@@ -46,6 +47,7 @@ $("#editPetForm").on("submit", event => {
         gender:$("#editPetGender").val(),
         age:$("#editPetAge").val(),
         color:$("#editPetColor").val(),
+        breed:$("#editPetBreed").val(),
         vaccinated:$("#editPetVaccinated").val(),
         hobbies:$("#editPetHobbies").val()
     };
