@@ -3,50 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <title>The Social Petwork</title>
 </head>
 <body>
-    <div class="header">
-        <div class="header__left">
-            <h1>The Social Petwork</h1>
-            <form class="header__input" action="submit">
-                <input placeholder="City/zip" type="text">
-            </form>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">The Social Petwork</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li><a href="#">Petwork</a></li>
+          </ul>
         </div>
-        <div class="header__center">
-            <div class="header__option">
-                <h3>
-                    Home
-                </h3>
-            </div>
-            <div class="header__option">
-                <h3>
-                    Favorites
-                </h3>
-            </div>
-            <div class="header__option">
-                <h3>
-                    Petwork
-                </h3>
-            </div>
-        </div>
-        <div class="header__right">
-            <h3>
-                Account
-            </h3>
-        </div>
-    </div>
-    <div class="user__profile">
+    </nav>
+    <div class="user__profile row">
         <div class="pet__info">
             <img class="avatar" src="https://images.pexels.com/photos/2820134/pexels-photo-2820134.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-            <h3>Oakley</h3>
+            <h5>Oakley</h5>
         </div>
-        <div class="user__description">
-            <div class="user">
+        <div class="user__description row">
+            <div class="user col s12">
                 <div class="user__top">
-                    <img class="user__picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnxMYq7EN3zM-cVRUOxBq5r2rIrYBepIpyAA&usqp=CAU" alt="">
+                    <img class="user__picture responsive-img circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnxMYq7EN3zM-cVRUOxBq5r2rIrYBepIpyAA&usqp=CAU" alt="">
                     <div class="userTop__info">
                         <h3>Ryan W.</h3>
                     </div>
@@ -59,26 +40,23 @@
             </div>
         </div>
     </div>
-    <div class="picture__album">
+<div class="container">
+    <div class="picture__album row">
         <div class="pictureAlbum__top">
-            <div class="album__title">
-                <h1>Oakley's Photos</h1>
+            <div class="album__title col s12">
+                <h3 class="center-align">Oakley's Photos</h3>
             </div>
         </div>
-        <div class="pictureAlbum__bottom">
-            <div class="picture">
-            
-            </div>
-            <div class="picture">
-                
-            </div>
-            <div class="picture">
-                
-            </div>
-            <div class="picture">
-                
+        <div class="pictureAlbum__bottom row">
+            <div class="col s12 center-align">
+                <img class="picture" src="" alt="">
+
+                <img class="picture" src="" alt="">
+
+                <img class="picture" src="" alt="">
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

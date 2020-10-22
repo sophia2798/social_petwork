@@ -7,66 +7,6 @@ body {
     background-color: rgb(248, 248, 248);
 }
 
-.header {
-    padding: 40px 40px;
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    background-color: white;
-    z-index: 100;
-    top: 0;
-    box-shadow: 0px 5px 8px -9px black;
-}
-
-
-.header__left {
-    display: flex;
-    font-size: x-large;
-}
-
-.header__input {
-    display: flex;
-    align-items: center;
-    background-color: #faf6f6;
-    padding: 10px;
-    margin-left: 10px;
-    border-radius: 999px;
-}
-
-.header__input > input {
-    border: none;
-    background-color: transparent;
-    outline-width: 0;
-}
-
-.header__center {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-}
-
-.header__option {
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
-    cursor: pointer;
-}
-
-.header__option {
-    color: grey;
-}
-
-.header__option:hover {
-    color: #222020;
-}
-
-.header__right > h3 {
-    display: flex;
-    text-align: center;
-    padding: 0 30px;
-    cursor: pointer;
-}
-
 .user__profile {
     display: flex;
     align-items: center;
@@ -85,23 +25,9 @@ body {
 .avatar {
     vertical-align: middle;
     width: 150px;
-    height: 155px;
+    height: 150px;
     margin: 40px 40px 40px 40px;
     border-radius: 50%;
-}
-
-.pet__pictures {
-    position: relative;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 120px;
-    height: 200px;
-    box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
-    border-radius: 10px;
-    margin: 10px;
-    transition: transform 100ms ease-in;
-    cursor: pointer;
 }
 
 .picture:hover{
@@ -138,38 +64,12 @@ body {
     color: rgb(104, 97, 97);
 }
 
-.user__bottom {
-    margin: 10px 0;
-    padding: 15px 25px;
-}
-
-.picture__album {
-    display: flex;
-    justify-content: center;
-    margin: 50px 50px 50px 50px;
-    padding: 40px;
-    border-radius: 5px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 5px 8px -9px black;;
-}
-
-.pictureAlbum__top {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-
-.pictureAlbum__bottom {
-    display: flex;
-}
-
 .picture {
-    position: relative;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgb(202, 201, 201);
-    width: 280px;
+    width: 260px;
     height: 200px;
     box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
     border-radius: 10px;
