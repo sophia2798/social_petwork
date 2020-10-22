@@ -11,11 +11,17 @@ module.exports = function (sequelize, DataTypes) {
     breed.associate = function(models) {
      // breed cannot be made without existing pet
       breed.belongsTo(models.type, {
-        // foreignKey: {
-        //   allowNull: true
-        // }
+        foreignKey: {
+          allowNull: true
+        }
       });
     };
-  
+    breed.associate = function (models) {
+      breed.hasMany(models.Pet, {
+          // foreignKey: {
+          //     allowNull: true
+          // }
+      });
+  }; 
     return breed;
   };

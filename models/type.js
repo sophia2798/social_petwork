@@ -8,11 +8,10 @@ module.exports = function (sequelize, DataTypes) {
     });
   
     petType.associate = function(models) {
-     // breed cannot be made without existing pet
-      petType.hasMany(models.breed, {
-        foreignKey: {
-          allowNull: false
-        }
+      petType.hasMany(models.Pet, {
+        // foreignKey: {
+        //   allowNull: false
+        // }
       });
   };
   return petType
