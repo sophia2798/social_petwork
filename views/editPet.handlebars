@@ -1,0 +1,12 @@
+<h1>Edit {{pet.name}}</h1>
+
+<form id="createPetForm">
+    <input type="text" value={{pet.name}} id="petName" placeholder="Name">
+    <input type="text" value={{pet.gender}} id="petGender" placeholder="Gender">
+    <input type="text" value={{pet.color}} id="petColor" placeholder="Color">
+    <input type="text" value={{pet.age}} id="petAge" placeholder="Age">
+    <input type="text" value={{pet.vaccinated}} id="petVaccinated" placeholder="Vaccinated">
+    <input type="text" value={{pet.hobbies}} id="petHobbies" placeholder="Hobbies">
+        <input type="hidden" id="editPet" value={{pet.id}}>
+    <input type="submit" value="Update Pet">
+</form>
