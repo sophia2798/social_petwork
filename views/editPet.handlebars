@@ -5,8 +5,11 @@
     <input type="text" value={{pet.gender}} id="editPetGender" placeholder="Gender">
     <input type="text" value={{pet.color}} id="editPetColor" placeholder="Color">
     <input type="text" value={{pet.age}} id="editPetAge" placeholder="Age">
+    <input type="text" value={{pet.breed}} id="editPetBreed" placeholder="Breed">
     <input type="text" value={{pet.vaccinated}} id="editPetVaccinated" placeholder="Vaccinated">
     <input type="text" value={{pet.hobbies}} id="editPetHobbies" placeholder="Hobbies">
     <input type="hidden" id="editPet" value={{pet.id}}>
+    <button id="upload_widget" data-petid={{pet.id}}> Upload Pet Picture</button>
     <input type="submit" value="Update Pet">
 </form>
+
