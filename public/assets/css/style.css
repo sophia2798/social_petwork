@@ -119,14 +119,12 @@ th {
   padding: 30px 30px;
 };
 
-
-
-.arrows-wrapper {
+/* #arrows-wrapper {
     position: absolute;
     bottom: 50%;
     z-index: 2;
     width: 100%;
-}
+} */
 
 .main-wrapper {
     margin: 0 1rem !important;
