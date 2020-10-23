@@ -140,4 +140,31 @@ router.delete("/:id", (req,res) =>{
     }
 });
 
+router.get("/:id", (req,res) => {
+    if (req.session.user) {
+        db.User.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(editUser => {
+            if(!editUser) {
+                res.send("User does not exist")
+            }
+            else if (editUser.UserId === req.session.user.id) {
+                const editUserJSON = editUser.toJSON();
+                res.render("editUser", {
+                    user: req.session.user,
+                    editUser = editUserJSON
+                })
+            }
+            else {
+                res.status(401).send("Not your account")
+            }
+        })
+    }
+    else {
+        res.status(401).send("You are not logged in")
+    }
+});
+
 module.exports = router;
