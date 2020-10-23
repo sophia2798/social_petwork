@@ -1,81 +1,80 @@
 <body>
-<div class="container">
-        <div class="user__profile center-align">
-            <div class="pet__info">
-                <div class="card-wrapper" style="display:flex;flex-direction:row">
-                    <div class="card" style="width:25rem; margin:1rem auto">
-                        <div class="card-image">
-                            <img class="responsive-img" src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1" alt="">
-                            <span class="card-title">{{name}}</span>
+    <div class="container">
+        <div class="row">
+            <div class="user__profile center-align">
+                <div class="pet__info">
+                    <div class="carousel" style="height: 800px">
+                        <div class="card-wrapper" style="display:flex;flex-direction:row">
+                            <div class="card carousel-item" style="width:25rem; margin:1rem auto">
+                                <div class="card-image">
+                                    <img class="responsive-img"
+                                        src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1"
+                                        alt="">
+                                    <span class="card-title">{{name}}</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>Gender: {{gender}}</p>
+                                    <p>Age: {{age}}</p>
+                                    <p>Color: {{color}}</p>
+                                    <p>Vaccinated: {{vaccinated}}</p>
+                                    <p>Hobbies: {{hobbies}}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small">Edit</a>
+                                    <button class="delPetBtn waves-effect waves-light btn-small"
+                                        data-petid={{id}}>Delete</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <p>Gender: {{gender}}</p>
-                            <p>Age: {{age}}</p>
-                            <p>Color: {{color}}</p>
-                            <p>Vaccinated: {{vaccinated}}</p>
-                            <p>Hobbies: {{hobbies}}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small" >Edit</a>
-                            <button class="delPetBtn waves-effect waves-light btn-small" data-petid={{id}}>Delete</button>
-                        </div>
-                    </div>
-                    <div class="card" style="width:25rem; margin:1rem auto">
-                        <div class="card-image">
-                            <img class="responsive-img" src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1" alt="">
-                            <span class="card-title">{{name}}</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Gender: {{gender}}</p>
-                            <p>Age: {{age}}</p>
-                            <p>Color: {{color}}</p>
-                            <p>Vaccinated: {{vaccinated}}</p>
-                            <p>Hobbies: {{hobbies}}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small" >Edit</a>
-                            <button class="delPetBtn waves-effect waves-light btn-small" data-petid={{id}}>Delete</button>
+                        <div class="card carousel-item" style="width:25rem; margin:1rem auto">
+                            <div class="card-image">
+                                <img class="responsive-img"
+                                    src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1"
+                                    alt="">
+                                <span class="card-title">{{name}}</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Gender: {{gender}}</p>
+                                <p>Age: {{age}}</p>
+                                <p>Color: {{color}}</p>
+                                <p>Vaccinated: {{vaccinated}}</p>
+                                <p>Hobbies: {{hobbies}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small">Edit</a>
+                                <button class="delPetBtn waves-effect waves-light btn-small"
+                                    data-petid={{id}}>Delete</button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <br>
                 <br>
-                <a href="/newpet" class="#81c784 green lighten-2 btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-        </div>
-    <div class="picture__album row">
-        <div class="pictureAlbum__top">
-            <div class="album__title col s12">
-                <h3 class="center-align">Photos</h3>
-            </div>
-        </div>
-        <div class="pictureAlbum__bottom row">
-            <div class="col s12 center-align">
-                <img class="picture" src="" alt="">
-
-                <img class="picture" src="" alt="">
-
-                <img class="picture" src="" alt="">
+                <a href="/newpet" class="#81c784 green lighten-2 btn-floating btn-large waves-effect waves-light red"><i
+                        class="material-icons">add</i></a>
             </div>
         </div>
     </div>
-</div>
+    </div>
     <div class="user__description row">
-            <div class="user">
-                <div class="user__top">
-                    <img class="user__picture responsive-img circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnxMYq7EN3zM-cVRUOxBq5r2rIrYBepIpyAA&usqp=CAU" alt="">
-                    <div class="userTop__info">
-                        <h3>{{user.first_name}} {{user.email}}</h3>
-                    </div>
-                </div>
-                <div class="user__bottom">
-                    <p>
-                        Hi! My name is {{user.first_name}} and this is my dog {{name}}. We just moved here from NYC and are looking for some friends to meet up for play dates!
-                    </p>
-                    <a href="/{{user.id}}"><button class="waves-effect waves-light btn-small">Edit User</button></a>
+        <div class="user">
+            <div class="user__top">
+                <img class="user__picture responsive-img circle"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnxMYq7EN3zM-cVRUOxBq5r2rIrYBepIpyAA&usqp=CAU"
+                    alt="">
+                <div class="userTop__info">
+                    <h3>{{user.first_name}} {{user.email}}</h3>
                 </div>
             </div>
+            <div class="user__bottom">
+                <p>
+                    Hi! My name is {{user.first_name}} and this is my dog {{name}}. We just moved here from NYC and are
+                    looking for some friends to meet up for play dates!
+                </p>
+                <a href="/{{user.id}}"><button class="waves-effect waves-light btn-small">Edit User</button></a>
+            </div>
         </div>
+    </div>
 </body>
 
 {{!-- {{#each user.Pets}}

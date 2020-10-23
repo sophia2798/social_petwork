@@ -96,8 +96,8 @@ $(document).ready(function () {
     });
 
     $(".sidenav").sidenav();
-
-    
+  
+    $('.carousel').carousel();
 });
 
 $("#navigation-btn-back").click(function () {
