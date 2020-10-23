@@ -33,10 +33,16 @@ module.exports = function (sequelize, DataTypes) {
 
     });
     Pet.associate = function(models) {
-        Pet.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
+        // Pet.belongsTo(models.User, {
+        //     as: 'pet',
+        //     foreignKey: {
+        //         allowNull: false
+        //     }
+        // });
+        Pet.belongsToMany(models.User, {
+            through: 'Favorite',
+            as: 'users',
+            foreignKey: 'petId'
         });
     };
     
