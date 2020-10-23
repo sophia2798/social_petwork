@@ -213,7 +213,7 @@ td {
     }
 }
 
-#upload_widget, input[type=submit] {
+.upload-widget, input[type=submit] {
     background-color: rgb(111,199,141);
     border: none;
     color: white;
@@ -221,8 +221,8 @@ td {
     border-radius: 5px;
 }
 
-#upload_widget:hover, input[type=submit]:hover {
-    cursor: pointer;
+.upload-widget:hover, input[type=submit]:hover {
+   cursor: pointer;
 }
 
 #form{
