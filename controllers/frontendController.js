@@ -163,7 +163,8 @@ router.get("/:id", (req,res) => {
         })
     }
     else {
-        res.status(401).send("You are not logged in")
+        res.redirect("/login");
+        alert("You are not signed in!");
     }
 });
 
