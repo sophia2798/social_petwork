@@ -18,6 +18,7 @@
   <nav>
     <div class="nav-wrapper">
       <a href="/"><img id="logo" src="/assets/images/logo3.png" alt="logo"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger" style="float:right"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down" style="height:100%">
         {{#if user}}
         <li class="nav-links"><a href="/myprofile">My Profile</a></li>
@@ -32,6 +33,20 @@
       </ul>
     </div>
   </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    {{#if user}}
+    <li class="nav-links"><a href="/myprofile">My Profile</a></li>
+    <li class="nav-links"><a href="/favorites">Favorites</a></li>
+    <li class="nav-links"><a href="/petwork">Petwork</a></li>
+    <li class="nav-links"><a href="/logout">Logout</a></li>
+    {{/if}}
+    {{#unless user}}
+    <li class="nav-links"><a href="/login">Login</a></li>
+    <li class="nav-links"><a href="/signup">Sign Up</a></li>
+    {{/unless}}
+  </ul>
+  
   {{{body}}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
