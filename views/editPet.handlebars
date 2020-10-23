@@ -9,32 +9,7 @@
     <input type="text" value={{pet.vaccinated}} id="editPetVaccinated" placeholder="Vaccinated">
     <input type="text" value={{pet.hobbies}} id="editPetHobbies" placeholder="Hobbies">
     <input type="hidden" id="editPet" value={{pet.id}}>
+    <button id="upload_widget" data-petid={{pet.id}}> Upload Pet Picture</button>
     <input type="submit" value="Update Pet">
 </form>
 
-<button id="upload_widget" class="cloudinary-button" data-petid={{pet.id}}>Upload files</button>
-
-<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-    var myWidget = cloudinary.createUploadWidget({
-        cloudName: 'mercspring',
-        uploadPreset: 'ml_default', folder: 'widgetUpload', cropping: true, sources: ['local', 'url', 'image_search', 'camera', 'google_drive', 'facebook', 'instagram'], googleApiKey: 'AIzaSyDkWnsHj5yjXat0zVLA9cyISwhn1F5sq0E'
-    }, (error, result) => {
-        if (!error && result && result.event === "success") {
-            console.log('Done! Here is the image info: ', result.info);
-            $.ajax({
-                method: "PUT",
-                url: `/api/pets/` + $("#upload_widget").attr("data-petid"),
-                data: {profilePic: result.info.secure_url}
-            }).then(apiRes => {
-                console.log(apiRes);
-            })
-        }
-    }
-    )
-
-    document.getElementById("upload_widget").addEventListener("click", function () {
-        myWidget.open();
-    }, false);
-</script>

@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         profilePic: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(510),
         },
         breed: {
             type: DataTypes.STRING
@@ -28,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN
         },
         hobbies: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
 
     });
