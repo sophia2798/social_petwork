@@ -208,7 +208,7 @@ footer {
     background: rgb(130,237,166,0.7);
 }
 
-#upload_widget, input[type=submit] {
+.upload-widget, input[type=submit] {
     background-color: rgb(111,199,141);
     border: none;
     color: white;
@@ -216,8 +216,8 @@ footer {
     border-radius: 5px;
 }
 
-#upload_widget:hover, input[type=submit]:hover {
-    cursor: pointer;
+.upload-widget:hover, input[type=submit]:hover {
+   cursor: pointer;
 }
 
 #form{

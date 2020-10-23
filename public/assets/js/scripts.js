@@ -10,6 +10,7 @@ $("#createPetForm").on("submit", event => {
         age: $("#petAge").val(),
         color: $("#petColor").val(),
         breed: $("#petBreed").val(),
+        profilePic: $("#create-widget").attr("data-pic"),
         vaccinated: $("#petVaccinated").val(),
         hobbies: $("#petHobbies").val(),
     };
@@ -72,6 +73,8 @@ $(document).ready(function () {
     });
 
     $(".sidenav").sidenav();
+
+    
 });
 
 $("#navigation-btn-back").click(function () {
@@ -81,25 +84,3 @@ $("#navigation-btn-forward").click(function () {
     $(".slider").slider("next");
 });
 
-
-var myWidget = cloudinary.createUploadWidget({
-    cloudName: 'mercspring',
-    uploadPreset: 'ml_default', folder: 'widgetUpload', cropping: true, sources: ['local', 'url', 'image_search', 'camera', 'google_drive', 'facebook', 'instagram'], googleApiKey: 'AIzaSyDkWnsHj5yjXat0zVLA9cyISwhn1F5sq0E'
-}, (error, result) => {
-    if (!error && result && result.event === "success") {
-        console.log('Done! Here is the image info: ', result.info);
-        $.ajax({
-            method: "PUT",
-            url: `/api/pets/` + $("#upload_widget").attr("data-petid"),
-            data: { profilePic: result.info.secure_url }
-        }).then(apiRes => {
-            console.log(apiRes);
-        })
-    }
-}
-)
-
-document.getElementById("upload_widget").addEventListener("click", function (event) {
-    event.preventDefault();
-    myWidget.open();
-}, false);
