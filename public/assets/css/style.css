@@ -8,10 +8,7 @@ body {
 
 .avatar {
     vertical-align: middle;
-    width: 150px;
-    height: 150px;
-    margin: 40px 40px 40px 40px;
-    border-radius: 50%;
+    height: 700px;
 }
 
 .picture:hover{
