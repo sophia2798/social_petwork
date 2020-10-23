@@ -179,3 +179,66 @@ input[type=submit] {
     padding: 0.5rem 1rem;
     border-radius: 5px;
 }
+
+.carousel  { 
+    min-height: 600px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    
+    
+    }
+.pic {
+    max-width: fit-content;   
+    height:200px;
+    border-radius: 55%;    
+     margin-top:30px;
+    margin-left: px; 
+    /* padding: 50px; */
+    /* padding: 40px; */
+    /* text-align: left; */
+} 
+#car {
+    padding: 70px;
+    width: 60%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding: 30px 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+
+
+}
+.carousel-item {
+    margin: auto;
+
+}
+.description {
+    margin-top: 15%;
+    margin-left: 15%;
+    margin-right: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+    padding: 30px 30px;
+
+
+
+}
+.information {
+    text-align: center;
+    background:rgb(130,237,166,0.5);
+    padding-bottom:25px;
+    padding-top: 5px;
+    font-size:15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-right: 10px;
+    width: 60%;
+    transform: translate(30%, 10%);
+    }
+    .img-name {
+        text-align: center;
+    }
+
