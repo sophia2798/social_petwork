@@ -150,11 +150,11 @@ router.get("/:id", (req,res) => {
             if(!editUser) {
                 res.send("User does not exist")
             }
-            else if (editUser.UserId === req.session.user.id) {
+            else if (editUser.id === req.session.user.id) {
                 const editUserJSON = editUser.toJSON();
                 res.render("editUser", {
                     user: req.session.user,
-                    editUser = editUserJSON
+                    editUser: editUserJSON
                 })
             }
             else {
