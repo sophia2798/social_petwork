@@ -1,5 +1,20 @@
 body {
     background-color: rgb(248, 248, 248);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: 1rem;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    background: rgb(130,237,166,0.7);
+    width: 100%;
 }
 
 .profile__picture {
@@ -8,10 +23,7 @@ body {
 
 .avatar {
     vertical-align: middle;
-    width: 150px;
-    height: 150px;
-    margin: 40px 40px 40px 40px;
-    border-radius: 50%;
+    height: 700px;
 }
 
 .picture:hover{
@@ -199,13 +211,6 @@ td {
     #features-title {
         margin-bottom: 0.7rem !important;
     }
-}
-
-footer {
-    margin-top: 1rem;
-    text-align: center;
-    font-family: "Quicksand", sans-serif;
-    background: rgb(130,237,166,0.7);
 }
 
 .upload-widget, input[type=submit] {

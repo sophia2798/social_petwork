@@ -1,20 +1,48 @@
 <body>
 <div class="container">
-    <div class="row">
         <div class="user__profile center-align">
             <div class="pet__info">
-                <img class="avatar" src="https://images.pexels.com/photos/2820134/pexels-photo-2820134.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-                <h5>{{name}}</h5>
-                <p>Gender: {{gender}}</p>
-                <p>Age: {{age}}</p>
-                <p>Color: {{color}}</p>
-                <p>Vaccinated: {{vaccinated}}</p>
-                <p>Hobbies: {{hobbies}}</p>
-                <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small" >Edit</a>
-                <button class="delPetBtn waves-effect waves-light btn-small" data-petid={{id}}>Delete</button>
+                <div class="card-wrapper" style="display:flex;flex-direction:row">
+                    <div class="card" style="width:25rem; margin:1rem auto">
+                        <div class="card-image">
+                            <img class="responsive-img" src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1" alt="">
+                            <span class="card-title">{{name}}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Gender: {{gender}}</p>
+                            <p>Age: {{age}}</p>
+                            <p>Color: {{color}}</p>
+                            <p>Vaccinated: {{vaccinated}}</p>
+                            <p>Hobbies: {{hobbies}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small" >Edit</a>
+                            <button class="delPetBtn waves-effect waves-light btn-small" data-petid={{id}}>Delete</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width:25rem; margin:1rem auto">
+                        <div class="card-image">
+                            <img class="responsive-img" src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1" alt="">
+                            <span class="card-title">{{name}}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Gender: {{gender}}</p>
+                            <p>Age: {{age}}</p>
+                            <p>Color: {{color}}</p>
+                            <p>Vaccinated: {{vaccinated}}</p>
+                            <p>Hobbies: {{hobbies}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small" >Edit</a>
+                            <button class="delPetBtn waves-effect waves-light btn-small" data-petid={{id}}>Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <a href="/newpet" class="#81c784 green lighten-2 btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
             </div>
         </div>
-    </div>
     <div class="picture__album row">
         <div class="pictureAlbum__top">
             <div class="album__title col s12">
@@ -44,6 +72,7 @@
                     <p>
                         Hi! My name is {{user.first_name}} and this is my dog {{name}}. We just moved here from NYC and are looking for some friends to meet up for play dates!
                     </p>
+                    <a href="/{{user.id}}"><button class="waves-effect waves-light btn-small">Edit User</button></a>
                 </div>
             </div>
         </div>
