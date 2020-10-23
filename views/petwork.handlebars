@@ -1,44 +1,58 @@
 <div class="carousel carousel-slider center center-align z-depth-5 flow-text" id="car">
-    <div class="carousel-fixed-item center">
-    </div>
-    <div class="carousel-item container z-depth-5 center-align" href="#one!">
-      <div class="row center-align">
-        <img class="pic center-align z-depth-5"
-            src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-        <div class="col s5">
-          <h1 class="center-align #004d40 teal-text darken-4">{{name}}</h1>
-          <div class="btn waves-effect white #b2dfdb teal-text lighten-4 center-align open-button">Connect With Pet</div>
-          <div class="info-popup" id="ownerInfo">
-              <div class="owner-name">Owners name</div>
-                <div class="owner-name">Owners info</div>
+    <div class="carousel-item container z-depth-5 center-align " href="#one!" data-indicators="true">
+        <div class="row center-align">
+            <img class="pic center-align z-depth-5"
+                src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+            <div class="col s5">
+                <h1 class="center-align #004d40 teal-text darken-4">{{name}}</h1>
+                <a class="btn waves-effect white #b2dfdb teal-text lighten-4 center-align" id="favorite-btn"
+                    onclick="$('#modal1').modal('open');">Connect With Owner</a>
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Connect With This Pets Owner</h4>
+                    <p><a href={{user.email}}>Send email</a></p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+                    </div>
+                </div>
+                <br>
+                <div class="btn waves-effect white #b2dfdb teal-text lighten-4 center-align" id="favorite-btn">Favorite
+                    this Pet</div>
+                <div class="info-popup" id="ownerInfo">
+                    <div class="owner-name">Owners name</div>
+                    <div class="owner-name">Owners info</div>
 
-          </div>
-        </div>
+                </div>
+            </div>
         </div>
         <div class="col s6 info center-align flow-text">
-          <div class="row information z-depth-5 flow-text">
-            <h2>Pet Info</h2>
-            <div class="col s6">
-              <div class=" pet age">Age of Pet</div>
-              <div class=" pet breed">Breed</div>
-              <div class=" pet gender">Gender</div>
-              <div class=" pet color">Color</div>
-            <div class=" pet hobbies">Hobbies</div>
-             <div class="pet vaccinated">Vaccinated?</div>
+            <div class="row information z-depth-5 flow-text">
+                <h2>Pet Info</h2>
+                <div class="col s6">
+                    <div class=" pet age">Age of Pet</div>
+                    <div class=" pet breed">Breed</div>
+                    <div class=" pet gender">Gender</div>
+                    <div class=" pet color">Color</div>
+                    <div class=" pet hobbies">Hobbies</div>
+                    <div class="pet vaccinated">Vaccinated</div>
 
+                </div>
+                <div class="col s6">
+                    <div class=" pet age">{{age}}</div>
+                    <div class=" pet breed">{{breed}}</div>
+                    <div class=" pet gender">{{gender}}</div>
+                    <div class=" pet color">{{color}}</div>
+                    <div class=" pet hobbies">{{hobbies}}</div>
+                    <div class="pet vaccinated">{{vaccinated}}</div>
+                </div>
             </div>
-            <div class="col s6">
-              <div class=" pet age">{{age}}</div>
-              <div class=" pet breed">{{breed}}</div>
-              <div class=" pet gender">{{gender}}</div>
-              <div class=" pet color">{{color}}</div>
-                <div class=" pet hobbies">{{hobbies}}</div>
-              <div class="pet vaccinated">{{vaccinated}}</div>
-            </div>
-          </div>
         </div>
-      </div>
 
     </div>
+    <div class=" col s6 car-btn #004d40 teal-text darken-4">
+    <div class="btn  car-next waves-effect">Next Pet</div>
     </div>
-  
+
+
+</div>
