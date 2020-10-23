@@ -154,6 +154,11 @@ td {
     min-height: 100%;
 }
 
+.sidenav {
+    font-family: "Quicksand", sans-serif;
+    background: rgb(235,247,239)
+}
+
 @media only screen and (max-width: 800px) {
     .main-wrapper {
         flex-direction: column;

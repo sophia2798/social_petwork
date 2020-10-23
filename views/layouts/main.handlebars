@@ -36,14 +36,14 @@
 
   <ul class="sidenav" id="mobile-demo">
     {{#if user}}
-    <li class="nav-links"><a href="/myprofile">My Profile</a></li>
-    <li class="nav-links"><a href="/favorites">Favorites</a></li>
-    <li class="nav-links"><a href="/petwork">Petwork</a></li>
-    <li class="nav-links"><a href="/logout">Logout</a></li>
+    <li class="nav-links" style="height:auto"><a href="/myprofile">My Profile</a></li>
+    <li class="nav-links" style="height:auto"><a href="/favorites">Favorites</a></li>
+    <li class="nav-links" style="height:auto"><a href="/petwork">Petwork</a></li>
+    <li class="nav-links" style="height:auto"><a href="/logout">Logout</a></li>
     {{/if}}
     {{#unless user}}
-    <li class="nav-links"><a href="/login">Login</a></li>
-    <li class="nav-links"><a href="/signup">Sign Up</a></li>
+    <li class="nav-links" style="height:auto"><a href="/login">Login</a></li>
+    <li class="nav-links" style="height:auto"><a href="/signup">Sign Up</a></li>
     {{/unless}}
   </ul>
   
