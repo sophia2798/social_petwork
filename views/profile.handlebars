@@ -1,43 +1,40 @@
 <body>
 <div class="container">
+    <div class="row">
         <div class="user__profile center-align">
             <div class="pet__info">
-                        <div class="card">
-                            <div class="card-image">
-                                <img class="avatar" src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1" alt="">
-                                <span class="card-title">{{name}}</span>
-                            </div>
-                            <div class="card-content">
-                                <p>Gender: {{gender}}</p>
-                                <p>Age: {{age}}</p>
-                                <p>Color: {{color}}</p>
-                                <p>Vaccinated: {{vaccinated}}</p>
-                                <p>Hobbies: {{hobbies}}</p>
-                            </div>
-                                <div class="card-action">
-                                    
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1" alt="">
+                        <span class="card-title">{{name}}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Gender: {{gender}}</p>
+                        <p>Age: {{age}}</p>
+                        <p>Color: {{color}}</p>
+                        <p>Vaccinated: {{vaccinated}}</p>
+                        <p>Hobbies: {{hobbies}}</p>
+                        <div class="picture__album row">
+                            <div class="pictureAlbum__bottom row">
+                                <div class="col s12 center-align">
+                                    <img class="picture" src="" alt="">
+
+                                    <img class="picture" src="" alt="">
+
+                                    <img class="picture" src="" alt="">
                                 </div>
+                            </div>
                         </div>
-                <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small" >Edit</a>
+                    </div>
+                        <div class="card-action">
+                                    
+                        </div>
+                </div>
+                <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small">Edit</a>
                 <button class="delPetBtn waves-effect waves-light btn-small" data-petid={{id}}>Delete</button>
                 <br>
                 <br>
                 <a href="/newpet" class="#81c784 green lighten-2 btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-        </div>
-    <div class="picture__album row">
-        <div class="pictureAlbum__top">
-            <div class="album__title col s12">
-                <h3 class="center-align">Photos</h3>
-            </div>
-        </div>
-        <div class="pictureAlbum__bottom row">
-            <div class="col s12 center-align">
-                <img class="picture" src="" alt="">
-
-                <img class="picture" src="" alt="">
-
-                <img class="picture" src="" alt="">
             </div>
         </div>
     </div>
