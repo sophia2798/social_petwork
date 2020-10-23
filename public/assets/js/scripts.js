@@ -70,6 +70,8 @@ $(document).ready(function () {
         interval: 5000,
         duration: 1500
     });
+
+    $(".sidenav").sidenav();
 });
 
 $("#navigation-btn-back").click(function () {

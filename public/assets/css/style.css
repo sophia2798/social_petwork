@@ -142,12 +142,63 @@ th {
     font-family: "Quicksand",sans-serif
 }
 
+td {
+    padding: 15px !important;
+}
+
 .aside-content {
     background: rgb(130,237,166,0.5);
     padding: 0.5rem;
     padding-top: 2rem;
     border: 10px double white;
     min-height: 100%;
+}
+
+.sidenav {
+    font-family: "Quicksand", sans-serif;
+    background: rgb(235,247,239)
+}
+
+@media only screen and (max-width: 800px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+
+    .info-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .features-wrapper {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .feature-row {
+        margin-bottom: 0 !important
+    }
+
+    td {
+        padding: 0 1rem !important;
+    }
+
+    .td1 {
+        width: 5% !important;
+    }
+
+    .td2 {
+        width: 95% !important;
+    }
+
+    .aside-content {
+        padding-top: 0.5rem;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    #features-title {
+        margin-bottom: 0.7rem !important;
+    }
 }
 
 footer {
