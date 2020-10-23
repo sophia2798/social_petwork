@@ -210,11 +210,12 @@ input[type=submit] {
     font-family: "Quicksand",sans-serif
 
 }
-.carousel-item {
+/* .carousel-item {
+    
     margin: auto;
    
 
-}
+} */
 .description {
     margin-top: 15%;
     margin-left: 15%;

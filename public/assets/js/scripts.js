@@ -108,9 +108,7 @@ var myWidget = cloudinary.createUploadWidget({
 }
 )
 $(document).ready(function() {
-
     $('#modal1').modal();
-    
   });
 
 document.getElementById("upload_widget").addEventListener("click", function (event) {
