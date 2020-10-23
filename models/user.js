@@ -23,6 +23,11 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     User.associate = function (models) {
+        User.belongsToMany(models.Pet, {
+            through: 'Favorite',
+            as: 'favorite_pets',
+            foreignKey: 'userId'
+        });
         User.hasMany(models.Pet, {
             onDelete: "cascade"
         });

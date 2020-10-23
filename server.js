@@ -44,7 +44,9 @@ app.use(session({
 
 // Routes
 // =============================================================
-require("./routes/routes.js")(app);
+// require("./routes/routes.js")(app);
+
+
 
 const authRoutes = require("./controllers/authController");
 app.use(authRoutes);
@@ -55,6 +57,8 @@ app.use(frontendRoutes);
 const petRoutes = require("./controllers/petController");
 app.use("/api/pets",petRoutes);
 
+const favRoutes = require("./controllers/favController");
+app.use("/fav", favRoutes);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({ force: false }).then(function() {
