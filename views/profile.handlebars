@@ -54,24 +54,24 @@
                         class="material-icons">add</i></a>
             </div>
         </div>
-    </div>
-    </div>
-    <div class="user__description row">
-        <div class="user">
-            <div class="user__top">
-                <img class="user__picture responsive-img circle"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnxMYq7EN3zM-cVRUOxBq5r2rIrYBepIpyAA&usqp=CAU"
-                    alt="">
-                <div class="userTop__info">
-                    <h3>{{user.first_name}} {{user.email}}</h3>
+        <div class="user__description row">
+            <div class="user">
+                <div class="user__top">
+                    <img class="user__picture responsive-img circle"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnxMYq7EN3zM-cVRUOxBq5r2rIrYBepIpyAA&usqp=CAU"
+                        alt="">
+                    <div class="userTop__info">
+                        <h3>{{user.first_name}} {{user.email}}</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="user__bottom">
-                <p>
-                    Hi! My name is {{user.first_name}} and this is my dog {{name}}. We just moved here from NYC and are
-                    looking for some friends to meet up for play dates!
-                </p>
-                <a href="/{{user.id}}"><button class="waves-effect waves-light btn-small">Edit User</button></a>
+                <div class="user__bottom">
+                    <p>
+                        Hi! My name is {{user.first_name}} and this is my dog {{name}}. We just moved here from NYC and
+                        are
+                        looking for some friends to meet up for play dates!
+                    </p>
+                    <a href="/{{user.id}}"><button class="waves-effect waves-light btn-small">Edit User</button></a>
+                </div>
             </div>
         </div>
     </div>
