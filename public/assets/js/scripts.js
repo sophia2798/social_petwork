@@ -63,6 +63,29 @@ $("#editPetForm").on("submit", event => {
     })
 });
 
+$("#editUserForm").on("submit", event => {
+    event.preventDefault();
+
+    console.log("user edited")
+    const editUserObj = {
+        first_name: $("#editFirstName").val(),
+        last_name: $("#editLastNAme").val(),
+        email: $("#editEmail").val(),
+        password: $("#editPassword").val(),
+        zip: $("#editZip").val(),
+    };
+    console.log(editUserObj);
+    const petId = $("#editUser").val();
+    $.ajax({
+        method: "PUT",
+        url: `/${petId}`,
+        data: editUserObj
+    }).then(apiRes => {
+        console.log(apiRes);
+        window.location.href = "/myprofile"
+    })
+});
+
 // Initialize slider on main page with options
 $(document).ready(function () {
     $(".slider").slider({
