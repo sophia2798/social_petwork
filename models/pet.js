@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         profilePic: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(510),
         },
         breed: {
             type: DataTypes.STRING
@@ -28,15 +28,21 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN
         },
         hobbies: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
 
     });
     Pet.associate = function(models) {
-        Pet.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
+        // Pet.belongsTo(models.User, {
+        //     as: 'pet',
+        //     foreignKey: {
+        //         allowNull: false
+        //     }
+        // });
+        Pet.belongsToMany(models.User, {
+            through: 'Favorite',
+            as: 'users',
+            foreignKey: 'petId'
         });
     };
     
