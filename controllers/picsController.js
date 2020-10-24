@@ -96,7 +96,7 @@ router.put("/pets/profilepic/:id", (req, res) => {
             profilePic: true,
         }, {
             where: {
-                id: req.body.profilePic,
+                id: req.body.id,
                 petId: req.params.id,
             }
         }).then(results => {

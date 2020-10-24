@@ -228,7 +228,7 @@ td {
     }
 }
 
-.upload-widget, input[type=submit] {
+.pic-btn, .upload-widget, input[type=submit] {
     background-color: rgb(111,199,141);
     border: none;
     color: white;
@@ -268,7 +268,7 @@ td {
     transform: translate(-50%, -50%);
     
 }
-.upload-widget:hover, input[type=submit]:hover {
+.pic-btn:hover, .upload-widget:hover, input[type=submit]:hover {
    cursor: pointer;
 }
 
@@ -395,5 +395,11 @@ td {
         right:3%;
 
     }
+
+
+.pic-btn{
+    margin-bottom: 5px;
+}
+
 
   
