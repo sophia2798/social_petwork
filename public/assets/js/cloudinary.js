@@ -16,6 +16,7 @@ var widget = cloudinary.createUploadWidget({
                 },
             }).then(apiRes => {
                 console.log(apiRes);
+                window.location.reload()
             })
         } else {
             $.ajax({
