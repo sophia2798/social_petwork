@@ -10,6 +10,7 @@ $("#createPetForm").on("submit", event => {
         age: $("#petAge").val(),
         color: $("#petColor").val(),
         breed: $("#petBreed").val(),
+        profilePic: $("#create-widget").attr("data-pic"),
         vaccinated: $("#petVaccinated").val(),
         hobbies: $("#petHobbies").val(),
     };
@@ -63,6 +64,29 @@ $("#editPetForm").on("submit", event => {
     })
 });
 
+$("#editUserForm").on("submit", event => {
+    event.preventDefault();
+
+    console.log("user edited")
+    const editUserObj = {
+        first_name: $("#editFirstName").val(),
+        last_name: $("#editLastNAme").val(),
+        email: $("#editEmail").val(),
+        password: $("#editPassword").val(),
+        zip: $("#editZip").val(),
+    };
+    console.log(editUserObj);
+    const petId = $("#editUser").val();
+    $.ajax({
+        method: "PUT",
+        url: `/${petId}`,
+        data: editUserObj
+    }).then(apiRes => {
+        console.log(apiRes);
+        window.location.href = "/myprofile"
+    })
+});
+
 // Initialize slider on main page with options
 $(document).ready(function () {
     $(".slider").slider({
@@ -70,6 +94,10 @@ $(document).ready(function () {
         interval: 5000,
         duration: 1500
     });
+
+    $(".sidenav").sidenav();
+
+    
 });
 
 $("#navigation-btn-back").click(function () {

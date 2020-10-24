@@ -1,5 +1,20 @@
 body {
     background-color: rgb(248, 248, 248);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: 1rem;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    background: rgb(130,237,166,0.7);
+    width: 100%;
 }
 
 .profile__picture {
@@ -8,10 +23,7 @@ body {
 
 .avatar {
     vertical-align: middle;
-    width: 150px;
-    height: 150px;
-    margin: 40px 40px 40px 40px;
-    border-radius: 50%;
+    height: 700px;
 }
 
 .picture:hover{
@@ -157,6 +169,10 @@ th {
     font-family: "Quicksand",sans-serif
 }
 
+td {
+    padding: 15px !important;
+}
+
 .aside-content {
     background: rgb(130,237,166,0.5);
     padding: 0.5rem;
@@ -165,14 +181,54 @@ th {
     min-height: 100%;
 }
 
-footer {
-    margin-top: 1rem;
-    text-align: center;
+.sidenav {
     font-family: "Quicksand", sans-serif;
-    background: rgb(130,237,166,0.7);
+    background: rgb(235,247,239)
 }
 
-input[type=submit] {
+@media only screen and (max-width: 800px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+
+    .info-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .features-wrapper {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .feature-row {
+        margin-bottom: 0 !important
+    }
+
+    td {
+        padding: 0 1rem !important;
+    }
+
+    .td1 {
+        width: 5% !important;
+    }
+
+    .td2 {
+        width: 95% !important;
+    }
+
+    .aside-content {
+        padding-top: 0.5rem;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    #features-title {
+        margin-bottom: 0.7rem !important;
+    }
+}
+
+.upload-widget, input[type=submit] {
     background-color: rgb(111,199,141);
     border: none;
     color: white;
@@ -193,13 +249,22 @@ input[type=submit] {
     border-radius: 55%;    
      margin-top:30px;
     margin-left: px; 
-    /* padding: 50px; */
-    /* padding: 40px; */
+ 
     /* text-align: left; */
 } 
 #car {
     padding: 70px;
     width: 60%;
+}
+.upload-widget:hover, input[type=submit]:hover {
+   cursor: pointer;
+}
+
+#form{
+    width: 380px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
     position: absolute;
     top:50%;
     left:50%;
@@ -319,3 +384,4 @@ input[type=submit] {
 
     }
 
+  
