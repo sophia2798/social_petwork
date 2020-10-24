@@ -106,3 +106,19 @@ $("#navigation-btn-forward").click(function () {
     $(".slider").slider("next");
 });
 
+$(document).ready(function(){
+    $('.carousel').carousel();
+
+// function for next slide
+    $('.car-next').click(function(){
+        $('.carousel').carousel('next');
+    });
+});
+ 
+$(document).ready(function() {
+    $('#modal1').modal();
+  });
+
+
+
+
