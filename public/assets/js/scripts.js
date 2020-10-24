@@ -106,12 +106,7 @@ $(document).ready(function () {
     });
 
     $(".sidenav").sidenav();
-<<<<<<< HEAD
-
-
-=======
     $('.carousel').carousel();
->>>>>>> dev
 });
 
 $("#navigation-btn-back").click(function () {
