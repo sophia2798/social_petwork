@@ -106,8 +106,12 @@ $(document).ready(function () {
     });
 
     $(".sidenav").sidenav();
+<<<<<<< HEAD
 
 
+=======
+    $('.carousel').carousel();
+>>>>>>> dev
 });
 
 $("#navigation-btn-back").click(function () {
@@ -116,4 +120,20 @@ $("#navigation-btn-back").click(function () {
 $("#navigation-btn-forward").click(function () {
     $(".slider").slider("next");
 });
+
+$(document).ready(function(){
+    $('.carousel').carousel();
+
+// function for next slide
+    $('.car-next').click(function(){
+        $('.carousel').carousel('next');
+    });
+});
+ 
+$(document).ready(function() {
+    $('#modal1').modal();
+  });
+
+
+
 
