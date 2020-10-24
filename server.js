@@ -47,6 +47,8 @@ app.use(session({
 // require("./routes/routes.js")(app);
 
 
+const picRoutes = require("./controllers/picsController");
+app.use("/pics/", picRoutes);
 
 const authRoutes = require("./controllers/authController");
 app.use(authRoutes);

@@ -10,7 +10,7 @@ $("#createPetForm").on("submit", event => {
         age: $("#petAge").val(),
         color: $("#petColor").val(),
         breed: $("#petBreed").val(),
-        profilePic: $("#create-widget").attr("data-pic"),
+        // profilePic: parseInt($("#create-widget").attr("data-pic")),
         vaccinated: $("#petVaccinated").val(),
         hobbies: $("#petHobbies").val(),
     };
@@ -21,7 +21,17 @@ $("#createPetForm").on("submit", event => {
         data: petObj
     }).then(apiRes => {
         console.log(apiRes);
-        window.location.href = "/myprofile"
+        console.log($("#create-widget").attr("data-pic"));
+        $.ajax({
+            method: "PUT",
+            url: "/pics/" + $("#create-widget").attr("data-pic"),
+            data: {
+                petId: apiRes.id,
+            }
+        }).then(results => {
+            console.log(results);
+            window.location.href = "/myprofile";
+        })
     })
 });
 
