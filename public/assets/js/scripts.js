@@ -10,7 +10,6 @@ $("#createPetForm").on("submit", event => {
         age: $("#petAge").val(),
         color: $("#petColor").val(),
         breed: $("#petBreed").val(),
-        // profilePic: parseInt($("#create-widget").attr("data-pic")),
         vaccinated: $("#petVaccinated").val(),
         hobbies: $("#petHobbies").val(),
     };
@@ -21,17 +20,19 @@ $("#createPetForm").on("submit", event => {
         data: petObj
     }).then(apiRes => {
         console.log(apiRes);
-        console.log($("#create-widget").attr("data-pic"));
-        $.ajax({
-            method: "PUT",
-            url: "/pics/" + $("#create-widget").attr("data-pic"),
-            data: {
-                petId: apiRes.id,
-            }
-        }).then(results => {
-            console.log(results);
-            window.location.href = "/myprofile";
-        })
+        if ($("#create-widget").attr("data-pic")) {
+            $.ajax({
+                method: "POST",
+                url: "/pics/",
+                data: {
+                    pictureUrl: $("#create-widget").attr("data-pic"),
+                    petId: apiRes.id,
+                    profilePic: true
+                }
+            }).then(results => {
+                window.location.href = "/myprofile";
+            })
+        }
     })
 });
 
@@ -116,18 +117,18 @@ $("#navigation-btn-forward").click(function () {
     $(".slider").slider("next");
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('.carousel').carousel();
 
-// function for next slide
-    $('.car-next').click(function(){
+    // function for next slide
+    $('.car-next').click(function () {
         $('.carousel').carousel('next');
     });
 });
- 
-$(document).ready(function() {
+
+$(document).ready(function () {
     $('#modal1').modal();
-  });
+});
 
 
 
