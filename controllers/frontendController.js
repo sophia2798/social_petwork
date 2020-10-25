@@ -3,36 +3,36 @@ const router = express.Router();
 const db = require("../models");
 
 router.get('/', (req, res) => {
-    const hbsObj = {user: req.session.user}
-    res.render("index",hbsObj);
+    const hbsObj = { user: req.session.user }
+    res.render("index", hbsObj);
 });
 
-router.get("/login",(req,res) => {
-    res.render("login",{user:req.session.user})
+router.get("/login", (req, res) => {
+    res.render("login", { user: req.session.user })
 });
 
-router.get("/signup",(req,res) => {
-    res.render("signup",{user:req.session.user})
+router.get("/signup", (req, res) => {
+    res.render("signup", { user: req.session.user })
 });
 
-router.get("/favorites",(req,res) => {
-    res.render("favorites",{user:req.session.user})
+router.get("/favorites", (req, res) => {
+    res.render("favorites", { user: req.session.user })
 });
 
-router.get("/petwork",(req,res) => {
-    res.render("petwork",{user:req.session.user})
+router.get("/petwork", (req, res) => {
+    res.render("petwork", { user: req.session.user })
 });
 
-router.get("/myprofile",(req,res)=> {
+router.get("/myprofile", (req, res) => {
     if (req.session.user) {
         db.User.findOne({
             where: {
                 id: req.session.user.id
             },
             include: [db.Pet]
-        }).then(userData=> {
+        }).then(userData => {
             const userDataJSON = userData.toJSON();
-            res.render("profile",{user:userDataJSON})
+            res.render("profile", { user: userDataJSON })
         })
     }
     else {
@@ -40,31 +40,53 @@ router.get("/myprofile",(req,res)=> {
     }
 });
 
-router.get("/newpet", (req,res) => {
+router.get("/newpet", (req, res) => {
     if (req.session.user) {
-        res.render("createPet", {user: req.session.user});
+        res.render("createPet", { user: req.session.user });
     }
     else {
         res.redirect("/login")
     }
 });
 
-router.get("/pets/edit/:id", (req,res) => {
+router.get("/pets/edit/:id", (req, res) => {
     if (req.session.user) {
         db.Pet.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            include: [{
+                model: db.Picture,
+            }]
         }).then(pet => {
             if (!pet) {
                 res.send("This pet does not exist in that database!")
             }
             else if (pet.UserId === req.session.user.id) {
-                const petJSON = pet.toJSON();
-                res.render("editPet", {
-                    user: req.session.user,
-                    pet: petJSON
-                })
+
+                    const petJSON = pet.toJSON();
+                    console.log(petJSON);
+                    res.render("editPet", {
+                        user: req.session.user,
+                        pet: petJSON,
+                        helpers: {
+                            gallery: function(context, options){
+                                let out = "", subcontext = [], i;
+                                if (context && context.length > 0) {
+                                    for (i = 0; i < context.length; i++) {
+                                        if (i > 0 && i % 4 === 0) {
+                                            out += options.fn(subcontext);
+                                            subcontext = [];
+                                        }
+                                        subcontext.push(context[i]);
+                                    }
+                                    out += options.fn(subcontext);
+                                }
+                                return out;
+                            }
+                        }
+                    })
+
             }
             else {
                 res.status(401).send("You cannot edit a pet that is not yours")
@@ -72,7 +94,8 @@ router.get("/pets/edit/:id", (req,res) => {
         })
     }
     else {
-        res.status(401).send("not logged in")
+        // res.status(401).send("not logged in")
+        res.redirect("/login")
     }
 });
 
@@ -81,7 +104,7 @@ router.put("/:id", (req, res) => {
     if (req.session.user) {
         db.User.findOne({
             where: {
-                id:req.params.id
+                id: req.params.id
             }
         }).then(user => {
             if (!user) {
@@ -96,8 +119,8 @@ router.put("/:id", (req, res) => {
                     zip: req.body.zip
 
                 }, {
-                        where: {
-                        id:req.params.id
+                    where: {
+                        id: req.params.id
                     }
                 }).then(editUser => {
                     res.json(editUser);
@@ -114,7 +137,7 @@ router.put("/:id", (req, res) => {
 })
 
 // User delete section
-router.delete("/:id", (req,res) =>{
+router.delete("/:id", (req, res) => {
     if (req.session.user) {
         db.User.findOne({
             where: {
@@ -124,7 +147,7 @@ router.delete("/:id", (req,res) =>{
             if (user.id === req.session.user.id) {
                 db.User.destroy({
                     where: {
-                        id:req.params.id
+                        id: req.params.id
                     }
                 }).then(delUser => {
                     res.json(delUser)
@@ -140,14 +163,14 @@ router.delete("/:id", (req,res) =>{
     }
 });
 
-router.get("/:id", (req,res) => {
+router.get("/:id", (req, res) => {
     if (req.session.user) {
         db.User.findOne({
             where: {
                 id: req.params.id
             }
         }).then(editUser => {
-            if(!editUser) {
+            if (!editUser) {
                 res.send("User does not exist")
             }
             else if (editUser.id === req.session.user.id) {

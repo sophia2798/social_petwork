@@ -2,9 +2,6 @@ module.exports = function (sequelize, DataTypes) {
     const Pet = sequelize.define("Pet", {
         name: {
             type: DataTypes.STRING,
-            validate: {
-                isAlpha: true
-            }
         },
         gender: {
             type: DataTypes.STRING,
@@ -12,9 +9,9 @@ module.exports = function (sequelize, DataTypes) {
                 isAlpha: true
             }
         },
-        profilePic: {
-            type: DataTypes.STRING(510),
-        },
+        // profilePic: {
+        //     type: DataTypes.INTEGER,
+        // },
         breed: {
             type: DataTypes.STRING
         },
@@ -44,6 +41,10 @@ module.exports = function (sequelize, DataTypes) {
             as: 'users',
             foreignKey: 'petId'
         });
+        Pet.hasMany(models.Picture, {
+            foreignKey: 'petId'
+        });
+
     };
     
     return Pet
