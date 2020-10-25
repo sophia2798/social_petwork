@@ -30,25 +30,46 @@ router.get("/pet/:id", (req, res) => {
 });
 // Add a favorite when a user favorites something
 router.post("/pet", (req, res) => {
-    db.Favorite.create({
-        userId: req.body.userId,
-        petId: req.body.petId,
-    }).then(result => {
-        res.status(200).json(result.id)
-    })
+    if (req.session.user) {
+        if (req.session.user.id === req.body.userId) {
+            db.Favorite.create({
+                userId: req.body.userId,
+                petId: req.body.petId,
+            }).then(result => {
+                res.status(200).json(result.id)
+            })
+        } else {
+            res.status(401).send("Not your Favorite")
+        }
+    } else {
+        res.status(401).send("please sign in")
+    }
 })
 
 // Delete a favorite when a user deletes a favorite
 router.delete("/:id", (req, res) => {
-    db.Favorite.destroy(
-        {
-            where: {
-                id: req.params.id
+    if (req.session.user) {
+        db.Favorite.findByPk(req.params.id).then(fav => {
+            if (fav.userId === req.session.user.id) {
+                db.Favorite.destroy(
+                    {
+                        where: {
+                            id: req.params.id
+                        }
+                    }
+                ).then(result => {
+                    res.status(200).json(result)
+                })
+            } else {
+                res.status(401).send("Not your favorite to delete")
             }
-        }
-    ).then(result => {
-        res.status(200).json(result)
-    })
+        }).catch(err => {
+            res.status(500).send("something went wrong")
+        })
+
+    } else {
+        res.status(401).send("please sign in")
+    }
 })
 
 module.exports = router;
