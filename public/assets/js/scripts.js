@@ -100,14 +100,14 @@ $("#editUserForm").on("submit", event => {
 
 // // Initialize slider on profile page
 
-$(document).ready(function() {
-    $.ajax({
-        method: "GET",
-        url: "/myprofile"
-    }).then(myPets => {
-        console.log(myPets)
-    })
-})
+// $(document).ready(function() {
+//     $.ajax({
+//         method: "GET",
+//         url: "/myprofile"
+//     }).then(myPets => {
+//         console.log(myPets)
+//     })
+// })
 
 // Initialize slider on main page with options
 $(document).ready(function () {
@@ -117,10 +117,10 @@ $(document).ready(function () {
         duration: 1500
     });
     
-    $("#slider1").slider({
+    $(".profile-slider").slider({
         indicators: true,
-        interval: 3000,
-        duration: 6000
+        interval: 300,
+        duration: 8000
     });
 
     $(".sidenav").sidenav();
