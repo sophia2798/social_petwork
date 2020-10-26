@@ -27,7 +27,8 @@ $("#createPetForm").on("submit", event => {
                 data: {
                     pictureUrl: $("#create-widget").attr("data-pic"),
                     petId: apiRes.id,
-                    profilePic: true
+                    profilePic: true,
+                    publicId: $("#create-widget").attr("data-public-id"),
                 }
             }).then(results => {
                 window.location.href = "/myprofile";

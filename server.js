@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var exphbs = require("express-handlebars");
+const cloudinary = require('cloudinary').v2;
 
 // Set up dotenv to hide session secret
 require("dotenv").config();

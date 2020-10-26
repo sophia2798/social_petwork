@@ -13,6 +13,7 @@ window.addEventListener('load', function () {
                         pictureUrl: result.info.secure_url,
                         profilePic: true,
                         petId: $(".upload-widget").attr("data-petid"),
+                        publicId: result.info.public_id,
                     },
                 }).then(apiRes => {
                     console.log(apiRes);
@@ -20,7 +21,7 @@ window.addEventListener('load', function () {
                 })
             } else {
                 $("#create-widget").attr("data-pic", result.info.secure_url);
-                console.log($(".upload-widget").attr("data-pic"));
+                $("#create-widget").attr("data-public-id", result.info.public_id);
             }
         }
     }
