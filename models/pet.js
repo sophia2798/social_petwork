@@ -9,9 +9,6 @@ module.exports = function (sequelize, DataTypes) {
                 isAlpha: true
             }
         },
-        // profilePic: {
-        //     type: DataTypes.INTEGER,
-        // },
         breed: {
             type: DataTypes.STRING
         },
@@ -30,12 +27,6 @@ module.exports = function (sequelize, DataTypes) {
 
     });
     Pet.associate = function(models) {
-        // Pet.belongsTo(models.User, {
-        //     as: 'pet',
-        //     foreignKey: {
-        //         allowNull: false
-        //     }
-        // });
         Pet.belongsToMany(models.User, {
             through: 'Favorite',
             as: 'users',
