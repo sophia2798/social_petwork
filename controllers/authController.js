@@ -14,7 +14,8 @@ router.post('/signup', (req, res) => {
     }).then(newUser => {
         req.session.user = {
             email: newUser.email,
-            id: newUser.id
+            id: newUser.id,
+            zip: newUser.zip
         }
         res.redirect("/myprofile");
     }).catch(err => {
@@ -35,7 +36,8 @@ router.post('/login', (req, res) => {
         } else if (bcrypt.compareSync(req.body.password, user.password)) {
             req.session.user = {
                 email: user.email,
-                id: user.id
+                id: user.id,
+                zip: user.zip
             }
             return res.redirect("/myprofile")
         }

@@ -1,53 +1,41 @@
 <div class="user__profile center-align">
     <div class="pet__info">
-        <div class="carousel" style="height: 800px">
+        <div class="carousel" style="height: 55rem; margin:0">
+        {{#unless localPet}}
+        <h2 style="font-family:'Quicksand', sans-serif; margin-bottom:0">There are No Pets in Your Area &#9785;</h2>
+        {{/unless}}
+        {{#if localPet}}
+        <h3 style="font-family:'Quicksand', sans-serif">Start Swiping to See Pets in Your Area!</h3>
+        {{/if}}
             <div class="card-wrapper" style="display:flex;flex-direction:row;">
-                <div class="card carousel-item" style="width:25rem; height:35rem;">
+                {{#each localPet}}
+                <div class="card carousel-item" style="width:27rem; height:40rem;">
                     <div class="card-image">
-                        <img class="responsive-img"
-                            src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1"
-                            alt="">
-                        <span class="card-title">{{name}}</span>
+                        <div class="slider profile-slider" style="max-height:20rem">
+                            <ul class="slides" style="max-height:20rem">
+                                {{#each pet.Pictures}}
+                                <li>
+                                    <img class="responsive-img" style="max-height:20rem" src={{dataValues.pictureUrl}} alt="">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <span class="card-title">{{pet.name}}</span>
                     </div>
                     <div class="card-content">
-                        <p>Gender: {{gender}}</p>
-                        <p>Age: {{age}}</p>
-                        <p>Color: {{color}}</p>
-                        <p>Vaccinated: {{vaccinated}}</p>
-                        <p>Hobbies: {{hobbies}}</p>
+                        <p>Gender: {{pet.gender}}</p>
+                        <p>Age: {{pet.age}}</p>
+                        <p>Breed: {{pet.breed}}</p>
+                        <p>Color: {{pet.color}}</p>
+                        <p>Vaccinated: {{pet.vaccinated}}</p>
+                        <p>Hobbies: {{pet.hobbies}}</p>
                     </div>
                     <div class="card-action">
-                        <div class="waves-effect waves-light btn-small" id="favorite-btn">
-                            <a href={{user.email}}>Send email</a>
-                        </div>
-                        <div class="waves-effect waves-light btn-small" id="favorite-btn">
-                            Favorite
-                        </div>
+                        <a class="waves-effect waves-light btn-small favorite-btn" href={{user.email}}>Send email</a>
+                        <a class="waves-effect waves-light btn-small favorite-btn">Favorite</a>
                     </div>
                 </div>
-            </div>
-            <div class="card carousel-item" style="width:25rem; height:35rem;">
-                <div class="card-image">
-                    <img class="responsive-img"
-                        src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                        alt="">
-                    <span class="card-title">{{name}}</span>
-                </div>
-                <div class="card-content">
-                    <p>Gender: {{gender}}</p>
-                    <p>Age: {{age}}</p>
-                    <p>Color: {{color}}</p>
-                    <p>Vaccinated: {{vaccinated}}</p>
-                    <p>Hobbies: {{hobbies}}</p>
-                </div>
-                <div class="card-action">
-                    <div class="waves-effect waves-light btn-small" id="favorite-btn">
-                        <a href={{user.email}}>Send email</a>
-                    </div>
-                    <div class="waves-effect waves-light btn-small" id="favorite-btn">
-                        Favorite
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
     </div>
