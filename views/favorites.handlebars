@@ -1,5 +1,8 @@
 <div class="user__profile center-align">
     <div class="pet__info">
+        {{#unless favorites.favorite_pets}}
+        <h2 style="font-family:'Quicksand', sans-serif;">You Don't Have Any Favorited Pets!</h2>
+        {{/unless}}
         <div class="carousel" style="height: 45rem; margin:0">
             <div class="card-wrapper" style="display:flex;flex-direction:row;">
             {{#each favorites.favorite_pets}}
