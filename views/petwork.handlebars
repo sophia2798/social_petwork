@@ -1,0 +1,49 @@
+<div class="user__profile center-align">
+    <div class="pet__info">
+        <div class="carousel" style="height: 55rem; margin:0">
+        {{#unless localPet}}
+        <h2 style="font-family:'Quicksand', sans-serif; margin-bottom:0">There are No Pets in Your Area &#9785;</h2>
+        {{/unless}}
+        {{#if localPet}}
+        <h3 style="font-family:'Quicksand', sans-serif">Start Swiping to See Pets in Your Area!</h3>
+        {{/if}}
+            <div class="card-wrapper" style="display:flex;flex-direction:row;">
+                {{#each localPet}}
+                {{#each Pets}}
+                <div class="card carousel-item" style="width:27rem; height:40rem;">
+                    <div class="card-image">
+                        <div class="slider profile-slider" style="max-height:20rem">
+                            <ul class="slides" style="max-height:20rem">
+                                {{#each Pictures}}
+                                <li>
+                                    <img class="responsive-img" style="max-height:20rem" src={{pictureUrl}} alt="">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <span class="card-title">{{name}}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Gender: {{gender}}</p>
+                        <p>Age: {{age}}</p>
+                        <p>Breed: {{breed}}</p>
+                        <p>Color: {{color}}</p>
+                        <p>Vaccinated: {{#if vaccinated}}Yes{{/if}} {{#unless vaccinated}}No{{/unless}}</p>
+                        <p>Hobbies: {{hobbies}}</p>
+                    </div>
+                    <div class="card-action">
+                        <a class="waves-effect waves-light btn-small favorite-btn" href={{user.email}}>Send email</a>
+                        {{#unless users}}
+                        <a class="waves-effect waves-light btn-small favorite-btn">Favorite</a>
+                        {{/unless}}
+                        {{#if users}}
+                        <a class="waves-effect waves-light btn-small remove-btn">Remove Favorite</a>
+                        {{/if}}
+                    </div>
+                </div>
+                {{/each}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

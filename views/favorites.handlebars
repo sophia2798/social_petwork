@@ -1,0 +1,32 @@
+<div class="user__profile center-align">
+    <div class="pet__info">
+        {{#unless favorites.favorite_pets}}
+        <h2 style="font-family:'Quicksand', sans-serif;">You Don't Have Any Favorited Pets!</h2>
+        {{/unless}}
+        <div class="carousel" style="height: 45rem; margin:0">
+            <div class="card-wrapper" style="display:flex;flex-direction:row;">
+            {{#each favorites.favorite_pets}}
+                <div class="card carousel-item" style="width:25rem; height:35rem;">
+                    <div class="card-image">
+                        <img class="responsive-img"
+                            src={{Pictures.0.pictureUrl}}
+                            alt="">
+                        <span class="card-title">{{name}}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Gender: {{gender}}</p>
+                        <p>Age: {{age}}</p>
+                        <p>Breed: {{breed}}</p>
+                        <p>Color: {{color}}</p>
+                        <p>Vaccinated: {{vaccinated}}</p>
+                        <p>Hobbies: {{hobbies}}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href={{users.0.email}} class="waves-effect waves-light btn-small favorite-btn" style="margin:0;color:white">Send email</a>
+                    </div>
+                </div>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
