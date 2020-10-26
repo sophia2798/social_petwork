@@ -39,8 +39,37 @@ router.get("/favorites", (req, res) => {
     }
 })
 
-router.get("/petwork", (req, res) => {
-    res.render("petwork", { user: req.session.user })
+router.get("/petwork", function (req, res) {
+    if (req.session.user) {
+        db.User.findAll({
+            where: {
+                zip: req.session.user.zip
+            },
+            attributes: { exclude: ['createdAt', 'updatedAt'] },
+            include: {
+                attributes: { exclude: ['createdAt', 'updatedAt'] },
+                model: db.Pet,
+                include: {
+                    model: db.Picture,
+                }
+            },
+        }).then(result => {
+    //    console.log(result[0].dataValues.id) 
+    // const resultJSON = result.toJSON()
+    let pets = [];
+    for (let i= 0; i < result.length; i++ ){
+        for ( let j = 0; j < result[i].dataValues.Pets.length; j++){
+            pets.push({pet:result[i].dataValues.Pets[j].dataValues,user:result[i].dataValues})
+        }
+    }
+    
+    console.log(pets[1].pet.Pictures);
+            res.render("petwork", { localPet: pets, user: req.session.user })
+        })
+    }
+    else {
+        res.redirect("/login")
+    }
 });
 
 router.get("/myprofile", (req, res) => {
@@ -212,33 +241,5 @@ router.get("/:id", (req, res) => {
         res.redirect("/login");
     }
 });
-
-router.get("/zip/:zip", function (req, res) {
-    db.User.findAll({
-        where: {
-            zip: req.params.zip
-        },
-        attributes: { exclude: ['createdAt', 'updatedAt'] },
-        include: {
-            attributes: { exclude: ['createdAt', 'updatedAt'] },
-            model: db.Pet,
-            include: {
-                model: db.Picture,
-            }
-        },
-    }).then(result => {
-//    console.log(result[0].dataValues.id) 
-// const resultJSON = result.toJSON()
-let pets = [];
-for (let i= 0; i < result.length; i++ ){
-    for ( let j = 0; j < result[i].dataValues.Pets.length; j++){
-        pets.push({pet:result[i].dataValues.Pets[j].dataValues,user:result[i].dataValues})
-    }
-}
-
-console.log(pets[1].pet.Pictures);
-        res.render("petwork", { localPet: pets})
-    })
-})
 
 module.exports = router;
