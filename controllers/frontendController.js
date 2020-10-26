@@ -49,22 +49,25 @@ router.get("/petwork", function (req, res) {
             include: {
                 attributes: { exclude: ['createdAt', 'updatedAt'] },
                 model: db.Pet,
-                include: {
-                    model: db.Picture,
-                }
+                include: [{ model: db.User, through: "Favorite", as: "users" }, { model: db.Picture }]
             },
         }).then(result => {
     //    console.log(result[0].dataValues.id) 
-    // const resultJSON = result.toJSON()
-    let pets = [];
-    for (let i= 0; i < result.length; i++ ){
-        for ( let j = 0; j < result[i].dataValues.Pets.length; j++){
-            pets.push({pet:result[i].dataValues.Pets[j].dataValues,user:result[i].dataValues})
-        }
-    }
-    
-    console.log(pets[1].pet.Pictures);
-            res.render("petwork", { localPet: pets, user: req.session.user })
+    const resultJSON = result.map(pet => pet.toJSON());
+    // console.log(resultJSON[1].Pets[0].users);
+    // console.log(resultJSON[0].Pets[0].users);
+    res.render("petwork", { localPet: resultJSON, user: req.session.user });
+    // let pets = [];
+    // for (let i= 0; i < result.length; i++ ){
+    //     for ( let j = 0; j < result[i].dataValues.Pets.length; j++){
+    //         pets.push({pet:result[i].dataValues.Pets[j].dataValues,user:result[i].dataValues})
+    //     }
+    // }
+
+    // // console.log(result[1].Pets[0].users[0].Favorite)
+    // console.log(result[1].Pets[0].users)
+    // // console.log(pets[1].pet.Pictures);
+    //         res.render("petwork", { localPet: pets, user: req.session.user })
         })
     }
     else {
@@ -80,7 +83,7 @@ router.get("/myprofile", (req, res) => {
             },
             include: { model: db.Pet, include: { model: db.Picture } }
         }).then(userData => {
-            console.log(JSON.stringify(userData, null, 2));
+            // console.log(JSON.stringify(userData, null, 2));
             const userDataJSON = userData.toJSON();
             // console.log(userDataJSON);
             res.render("profile", { user: userDataJSON })
