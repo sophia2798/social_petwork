@@ -1,5 +1,6 @@
 body {
     background-color: rgb(248, 248, 248);
+    background-position: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -35,7 +36,7 @@ footer {
     width: 87%;
     padding: 40px;
     border-radius: 5px;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     box-shadow: 0px 5px 8px -9px black;
 }
 
@@ -57,7 +58,7 @@ footer {
 
 .userTop__info > h3 {
     font-size: medium;
-    color: rgb(104, 97, 97);
+    color: rgb(56, 54, 54);
 }
 
 .picture {
@@ -249,6 +250,7 @@ td {
     
     }
     .carousel-item {
+        background-color: white;
         top:50%;
         left:50%;
         transform: translate(-50%, -50%);
