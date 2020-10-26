@@ -29,8 +29,14 @@ router.get("/myprofile", (req, res) => {
             where: {
                 id: req.session.user.id
             },
-            include: [db.Pet]
+            include: {
+                model: db.Pet,
+                include: {
+                    model: db.Picture,
+                }
+            }
         }).then(userData => {
+            console.log(JSON.stringify(userData, null, 2));
             const userDataJSON = userData.toJSON();
             res.render("profile", { user: userDataJSON })
         })
