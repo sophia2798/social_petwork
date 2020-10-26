@@ -22,11 +22,5 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    // Picture.associate = function (models) {
-    //     Picture.bel(models.Pet, {
-    //         as: 'profilePic',
-    //     })
-    // };
-
     return Picture
 };

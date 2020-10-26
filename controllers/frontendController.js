@@ -115,6 +115,7 @@ router.put("/:id", (req, res) => {
                 db.User.update({
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
+                    bio: req.body.bio,
                     email: req.body.email,
                     password: req.body.password,
                     zip: req.body.zip
