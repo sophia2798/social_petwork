@@ -1,15 +1,21 @@
 <div class="user__profile center-align">
     <div class="pet__info">
-        <div class="carousel" style="height: 800px">
+        <div class="carousel" style="height: 55rem; margin:0">
+        {{#unless localPet}}
+        <h2 style="font-family:'Quicksand', sans-serif; margin-bottom:0">There are No Pets in Your Area &#9785;</h2>
+        {{/unless}}
+        {{#if localPet}}
+        <h3 style="font-family:'Quicksand', sans-serif">Start Swiping to See Pets in Your Area!</h3>
+        {{/if}}
             <div class="card-wrapper" style="display:flex;flex-direction:row;">
                 {{#each localPet}}
-                <div class="card carousel-item" style="width:25rem; height:35rem;">
+                <div class="card carousel-item" style="width:27rem; height:40rem;">
                     <div class="card-image">
-                        <div class="slider profile-slider" style="max-height:18rem">
-                            <ul class="slides" style="max-height:18rem">
+                        <div class="slider profile-slider" style="max-height:20rem">
+                            <ul class="slides" style="max-height:20rem">
                                 {{#each pet.Pictures}}
                                 <li>
-                                    <img class="responsive-img" style="max-height:18rem" src={{dataValues.pictureUrl}} alt="">
+                                    <img class="responsive-img" style="max-height:20rem" src={{dataValues.pictureUrl}} alt="">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -25,12 +31,8 @@
                         <p>Hobbies: {{pet.hobbies}}</p>
                     </div>
                     <div class="card-action">
-                        <div class="waves-effect waves-light btn-small" id="favorite-btn">
-                            <a href={{user.email}}>Send email</a>
-                        </div>
-                        <div class="waves-effect waves-light btn-small" id="favorite-btn">
-                            Favorite
-                        </div>
+                        <a class="waves-effect waves-light btn-small favorite-btn" href={{user.email}}>Send email</a>
+                        <a class="waves-effect waves-light btn-small favorite-btn">Favorite</a>
                     </div>
                 </div>
                 {{/each}}
