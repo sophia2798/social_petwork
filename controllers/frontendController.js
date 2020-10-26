@@ -15,9 +15,29 @@ router.get("/signup", (req, res) => {
     res.render("signup", { user: req.session.user })
 });
 
-router.get("/favorites", (req, res) => {
-    res.render("favorites", { user: req.session.user })
-});
+router.get("/favorites", (req,res) => {
+    if (req.session.user) {
+        db.User.findOne({
+            where: {
+                id: req.session.user.id
+            },
+            include: {
+                model: db.Pet,
+                as: "favorite_pets",
+                required: false,
+                attributes: { exclude: ['createdAt', 'updatedAt'] },
+                include: [{model:db.User, through: "Favorite", as:"users"}, {model:db.Picture, where:{profilePic: 1}}]
+            }
+        }).then(result => {
+            const resultJSON = result.toJSON();
+            console.log(resultJSON.favorite_pets)
+            res.render("favorites",{favorites:resultJSON, user:req.session.user})
+        })
+    }
+    else {
+        res.redirect("/login")
+    }
+})
 
 router.get("/petwork", (req, res) => {
     res.render("petwork", { user: req.session.user })
@@ -29,15 +49,11 @@ router.get("/myprofile", (req, res) => {
             where: {
                 id: req.session.user.id
             },
-            include: {
-                model: db.Pet,
-                include: {
-                    model: db.Picture,
-                }
-            }
+            include: {model: db.Pet, include:{model:db.Picture}}
         }).then(userData => {
             console.log(JSON.stringify(userData, null, 2));
             const userDataJSON = userData.toJSON();
+            // console.log(userDataJSON);
             res.render("profile", { user: userDataJSON })
         })
     }
@@ -120,6 +136,7 @@ router.put("/:id", (req, res) => {
                 db.User.update({
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
+                    bio: req.body.bio,
                     email: req.body.email,
                     password: req.body.password,
                     zip: req.body.zip
@@ -193,8 +210,8 @@ router.get("/:id", (req, res) => {
     }
     else {
         res.redirect("/login");
-        alert("You are not signed in!");
     }
 });
+
 
 module.exports = router;
