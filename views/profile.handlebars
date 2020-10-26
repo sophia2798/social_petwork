@@ -28,8 +28,8 @@
                                     <p>Age: {{age}}</p>
                                     <p>Breed: {{breed}}</p>
                                     <p>Color: {{color}}</p>
-                                    <p>Vaccinated: {{vaccinated}}</p>
                                     <p>Hobbies: {{hobbies}}</p>
+                                    {{vaccinated}}
                                 </div>
                                 <div class="card-action">
                                     <a href="/pets/edit/{{id}}" class="waves-effect waves-light btn-small">Edit</a>
@@ -52,10 +52,11 @@
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnxMYq7EN3zM-cVRUOxBq5r2rIrYBepIpyAA&usqp=CAU"
                         alt="">
                     <div class="userTop__info">
-                        <h3>{{user.first_name}} {{user.email}}</h3>
+                        <h3>{{user.first_name}}</h3>
                     </div>
                 </div>
                 <div class="user__bottom">
+                     {{user.email}}
                     <p>
                         Hi! My name is {{user.first_name}} and this is my dog {{name}}. We just moved here from NYC and
                         are

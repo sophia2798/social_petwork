@@ -15,7 +15,7 @@ router.get("/signup", (req, res) => {
     res.render("signup", { user: req.session.user })
 });
 
-router.get("/favorites", (req,res) => {
+router.get("/favorites", (req, res) => {
     if (req.session.user) {
         db.User.findOne({
             where: {
@@ -26,12 +26,12 @@ router.get("/favorites", (req,res) => {
                 as: "favorite_pets",
                 required: false,
                 attributes: { exclude: ['createdAt', 'updatedAt'] },
-                include: [{model:db.User, through: "Favorite", as:"users"}, {model:db.Picture, where:{profilePic: 1}}]
+                include: [{ model: db.User, through: "Favorite", as: "users" }, { model: db.Picture, where: { profilePic: 1 } }]
             }
         }).then(result => {
             const resultJSON = result.toJSON();
             console.log(resultJSON.favorite_pets)
-            res.render("favorites",{favorites:resultJSON, user:req.session.user})
+            res.render("favorites", { favorites: resultJSON, user: req.session.user })
         })
     }
     else {
@@ -39,15 +39,19 @@ router.get("/favorites", (req,res) => {
     }
 })
 
+router.get("/petwork", (req, res) => {
+    res.render("petwork", { user: req.session.user })
+});
+
 router.get("/myprofile", (req, res) => {
     if (req.session.user) {
         db.User.findOne({
             where: {
                 id: req.session.user.id
             },
-            include: {model: db.Pet, include:{model:db.Picture}}
+            include: { model: db.Pet, include: { model: db.Picture } }
         }).then(userData => {
-            // console.log(JSON.stringify(userData, null, 2));
+            console.log(JSON.stringify(userData, null, 2));
             const userDataJSON = userData.toJSON();
             // console.log(userDataJSON);
             res.render("profile", { user: userDataJSON })
@@ -67,25 +71,6 @@ router.get("/newpet", (req, res) => {
     }
 });
 
-router.get("/petwork", function (req, res) {
-    console.log(req.session.user)
-    if (req.session.user) {
-        db.User.findAll({
-            where: {
-                zip: req.session.user.zip
-            },
-            raw: true,
-            include: {model: db.Pet, include:{model:db.Picture}}
-        }).then(localPets => {
-            console.log(localPets)
-            res.render("petwork", { local: localPets, user: req.session.user })
-        })
-    }
-    else {
-        res.redirect("/login");
-    }
-});
-
 router.get("/pets/edit/:id", (req, res) => {
     if (req.session.user) {
         db.Pet.findOne({
@@ -101,28 +86,28 @@ router.get("/pets/edit/:id", (req, res) => {
             }
             else if (pet.UserId === req.session.user.id) {
 
-                    const petJSON = pet.toJSON();
-                    console.log(petJSON);
-                    res.render("editPet", {
-                        user: req.session.user,
-                        pet: petJSON,
-                        helpers: {
-                            gallery: function(context, options){
-                                let out = "", subcontext = [], i;
-                                if (context && context.length > 0) {
-                                    for (i = 0; i < context.length; i++) {
-                                        if (i > 0 && i % 4 === 0) {
-                                            out += options.fn(subcontext);
-                                            subcontext = [];
-                                        }
-                                        subcontext.push(context[i]);
+                const petJSON = pet.toJSON();
+                console.log(petJSON);
+                res.render("editPet", {
+                    user: req.session.user,
+                    pet: petJSON,
+                    helpers: {
+                        gallery: function (context, options) {
+                            let out = "", subcontext = [], i;
+                            if (context && context.length > 0) {
+                                for (i = 0; i < context.length; i++) {
+                                    if (i > 0 && i % 4 === 0) {
+                                        out += options.fn(subcontext);
+                                        subcontext = [];
                                     }
-                                    out += options.fn(subcontext);
+                                    subcontext.push(context[i]);
                                 }
-                                return out;
+                                out += options.fn(subcontext);
                             }
+                            return out;
                         }
-                    })
+                    }
+                })
 
             }
             else {
@@ -228,6 +213,32 @@ router.get("/:id", (req, res) => {
     }
 });
 
+router.get("/zip/:zip", function (req, res) {
+    db.User.findAll({
+        where: {
+            zip: req.params.zip
+        },
+        attributes: { exclude: ['createdAt', 'updatedAt'] },
+        include: {
+            attributes: { exclude: ['createdAt', 'updatedAt'] },
+            model: db.Pet,
+            include: {
+                model: db.Picture,
+            }
+        },
+    }).then(result => {
+//    console.log(result[0].dataValues.id) 
+// const resultJSON = result.toJSON()
+let pets = [];
+for (let i= 0; i < result.length; i++ ){
+    for ( let j = 0; j < result[i].dataValues.Pets.length; j++){
+        pets.push({pet:result[i].dataValues.Pets[j].dataValues,user:result[i].dataValues})
+    }
+}
 
+console.log(pets[1].pet.Pictures);
+        res.render("petwork", { localPet: pets})
+    })
+})
 
 module.exports = router;

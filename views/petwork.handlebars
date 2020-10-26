@@ -2,32 +2,31 @@
     <div class="pet__info">
         <div class="carousel" style="height: 800px">
             <div class="card-wrapper" style="display:flex;flex-direction:row;">
-                {{#each local}}
+                {{#each localPet}}
                 <div class="card carousel-item" style="width:25rem; height:35rem;">
                     <div class="card-image">
                         <div class="slider profile-slider" style="max-height:18rem">
                             <ul class="slides" style="max-height:18rem">
-                                {{#each 'Pet.Pictures'}}
+                                {{#each pet.Pictures}}
                                 <li>
-                                    <img class="responsive-img" style="max-height:18rem" src={{'pictureUrl'}}
-                                        alt="">
+                                    <img class="responsive-img" style="max-height:18rem" src={{dataValues.pictureUrl}} alt="">
                                 </li>
                                 {{/each}}
                             </ul>
                         </div>
-                        <span class="card-title">{{'Pets.name'}}</span>
+                        <span class="card-title">{{pet.name}}</span>
                     </div>
                     <div class="card-content">
-                        <p>Gender: {{'Pets.gender'}}</p>
-                        <p>Age: {{'Pets.age'}}</p>
-                        <p>Breed: {{'Pets.breed'}}</p>
-                        <p>Color: {{'Pets.color'}}</p>
-                        <p>Vaccinated: {{'Pets.vaccinated'}}</p>
-                        <p>Hobbies: {{'Pets.hobbies'}}</p>
+                        <p>Gender: {{pet.gender}}</p>
+                        <p>Age: {{pet.age}}</p>
+                        <p>Breed: {{pet.breed}}</p>
+                        <p>Color: {{pet.color}}</p>
+                        <p>Vaccinated: {{pet.vaccinated}}</p>
+                        <p>Hobbies: {{pet.hobbies}}</p>
                     </div>
                     <div class="card-action">
                         <div class="waves-effect waves-light btn-small" id="favorite-btn">
-                            <a href={{email}}>Send email</a>
+                            <a href={{user.email}}>Send email</a>
                         </div>
                         <div class="waves-effect waves-light btn-small" id="favorite-btn">
                             Favorite
