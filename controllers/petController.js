@@ -2,21 +2,21 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-router.post('/', (req,res) => {
+router.post('/', (req, res) => {
     if (req.session.user) {
         db.Pet.create({
-            name:req.body.name,
-            gender:req.body.gender,
-            age:req.body.age,
-            color:req.body.color,
-            profilePic:req.body.profilePic,
-            vaccinated:req.body.vaccinated,
-            hobbies:req.body.hobbies,
-            breed:req.body.breed,
-            UserId:req.session.user.id
-        }).then(newPet=>{
+            name: req.body.name,
+            gender: req.body.gender,
+            age: req.body.age,
+            color: req.body.color,
+            profilePic: req.body.profilePic,
+            vaccinated: req.body.vaccinated,
+            hobbies: req.body.hobbies,
+            breed: req.body.breed,
+            UserId: req.session.user.id
+        }).then(newPet => {
             res.json(newPet)
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err);
             res.status(500).end();
         })
@@ -26,13 +26,13 @@ router.post('/', (req,res) => {
     }
 });
 
-router.get("/", (req,res) => {
+router.get("/", (req, res) => {
     db.Pet.findAll().then(pets => {
         res.json(pets)
     })
 });
 
-router.delete("/:id", (req,res) =>{
+router.delete("/:id", (req, res) => {
     if (req.session.user) {
         db.Pet.findOne({
             where: {
@@ -42,7 +42,7 @@ router.delete("/:id", (req,res) =>{
             if (pet.UserId === req.session.user.id) {
                 db.Pet.destroy({
                     where: {
-                        id:req.params.id
+                        id: req.params.id
                     }
                 }).then(delPet => {
                     res.json(delPet)
@@ -58,7 +58,7 @@ router.delete("/:id", (req,res) =>{
     }
 });
 
-router.put("/:id", (req,res) =>{
+router.put("/:id", (req, res) => {
     if (req.session.user) {
         db.Pet.findOne({
             where: {
@@ -70,17 +70,17 @@ router.put("/:id", (req,res) =>{
             }
             else if (pet.UserId === req.session.user.id) {
                 db.Pet.update({
-                    name:req.body.name,
-                    gender:req.body.gender,
-                    age:req.body.age,
-                    profilePic:req.body.profilePic,
-                    color:req.body.color,
-                    vaccinated:req.body.vaccinated,
-                    hobbies:req.body.hobbies,
-                    breed:req.body.breed
-                },{
+                    name: req.body.name,
+                    gender: req.body.gender,
+                    age: req.body.age,
+                    profilePic: req.body.profilePic,
+                    color: req.body.color,
+                    vaccinated: req.body.vaccinated,
+                    hobbies: req.body.hobbies,
+                    breed: req.body.breed
+                }, {
                     where: {
-                        id:req.params.id
+                        id: req.params.id
                     }
                 }).then(editPet => {
                     res.json(editPet);
@@ -102,15 +102,20 @@ router.put("/:id", (req,res) =>{
 router.get("/zip/:zip", function (req, res) {
     db.Pet.findAll({
         attributes: { exclude: ['createdAt', 'updatedAt'] },
-        include: {
+        include: [{
             attributes: { exclude: ['createdAt', 'updatedAt'] },
             model: db.User,
+            as: "users",
             where: {
-                zip:req.params.zip
+                zip: req.params.zip
             }
-        }
+        },
+        {
+            model: db.Picture,
+        }]
     }).then(result => {
-        res.send(result)
+        console.log(result)
+        res.json(result)
     })
 })
 
