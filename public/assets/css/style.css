@@ -182,6 +182,11 @@ td {
     min-height: 100%;
 }
 
+.indicators {
+    z-index: 3;
+    height:3rem
+}
+
 .sidenav {
     font-family: "Quicksand", sans-serif;
     background: rgb(235,247,239)

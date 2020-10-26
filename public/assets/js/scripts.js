@@ -98,12 +98,29 @@ $("#editUserForm").on("submit", event => {
     })
 });
 
+// // Initialize slider on profile page
+
+$(document).ready(function() {
+    $.ajax({
+        method: "GET",
+        url: "/myprofile"
+    }).then(myPets => {
+        console.log(myPets)
+    })
+})
+
 // Initialize slider on main page with options
 $(document).ready(function () {
     $(".slider").slider({
         indicators: false,
         interval: 5000,
         duration: 1500
+    });
+    
+    $("#slider1").slider({
+        indicators: true,
+        interval: 3000,
+        duration: 6000
     });
 
     $(".sidenav").sidenav();
