@@ -1,47 +1,31 @@
 <div class="user__profile center-align">
     <div class="pet__info">
-        <div class="carousel" style="height: 800px">
+        {{#unless favorites.favorite_pets}}
+        <h2 style="font-family:'Quicksand', sans-serif;">You Don't Have Any Favorited Pets!</h2>
+        {{/unless}}
+        <div class="carousel" style="height: 45rem; margin:0">
             <div class="card-wrapper" style="display:flex;flex-direction:row;">
+            {{#each favorites.favorite_pets}}
                 <div class="card carousel-item" style="width:25rem; height:35rem;">
                     <div class="card-image">
                         <img class="responsive-img"
-                            src="https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=1"
+                            src={{Pictures.0.pictureUrl}}
                             alt="">
                         <span class="card-title">{{name}}</span>
                     </div>
                     <div class="card-content">
                         <p>Gender: {{gender}}</p>
                         <p>Age: {{age}}</p>
+                        <p>Breed: {{breed}}</p>
                         <p>Color: {{color}}</p>
                         <p>Vaccinated: {{vaccinated}}</p>
                         <p>Hobbies: {{hobbies}}</p>
                     </div>
                     <div class="card-action">
-                        <div class="waves-effect waves-light btn-small" id="favorite-btn">
-                            <a href={{user.email}}>Send email</a>
-                        </div>
+                        <a href={{users.0.email}} class="waves-effect waves-light btn-small favorite-btn" style="margin:0;color:white">Send email</a>
                     </div>
                 </div>
-            </div>
-            <div class="card carousel-item" style="width:25rem; height:35rem;">
-                <div class="card-image">
-                    <img class="responsive-img"
-                        src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                        alt="">
-                    <span class="card-title">{{name}}</span>
-                </div>
-                <div class="card-content">
-                    <p>Gender: {{gender}}</p>
-                    <p>Age: {{age}}</p>
-                    <p>Color: {{color}}</p>
-                    <p>Vaccinated: {{vaccinated}}</p>
-                    <p>Hobbies: {{hobbies}}</p>
-                </div>
-                <div class="card-action">
-                    <div class="waves-effect waves-light btn-small" id="favorite-btn">
-                        <a href={{user.email}}>Send email</a>
-                    </div>
-                </div>
+            {{/each}}
             </div>
         </div>
     </div>
