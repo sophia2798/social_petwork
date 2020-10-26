@@ -39,10 +39,6 @@ router.get("/favorites", (req,res) => {
     }
 })
 
-router.get("/petwork", (req, res) => {
-    res.render("petwork", { user: req.session.user })
-});
-
 router.get("/myprofile", (req, res) => {
     if (req.session.user) {
         db.User.findOne({
@@ -51,7 +47,7 @@ router.get("/myprofile", (req, res) => {
             },
             include: {model: db.Pet, include:{model:db.Picture}}
         }).then(userData => {
-            console.log(JSON.stringify(userData, null, 2));
+            // console.log(JSON.stringify(userData, null, 2));
             const userDataJSON = userData.toJSON();
             // console.log(userDataJSON);
             res.render("profile", { user: userDataJSON })
@@ -68,6 +64,25 @@ router.get("/newpet", (req, res) => {
     }
     else {
         res.redirect("/login")
+    }
+});
+
+router.get("/petwork", function (req, res) {
+    console.log(req.session.user)
+    if (req.session.user) {
+        db.User.findAll({
+            where: {
+                zip: req.session.user.zip
+            },
+            raw: true,
+            include: {model: db.Pet, include:{model:db.Picture}}
+        }).then(localPets => {
+            console.log(localPets)
+            res.render("petwork", { local: localPets, user: req.session.user })
+        })
+    }
+    else {
+        res.redirect("/login");
     }
 });
 
@@ -212,6 +227,7 @@ router.get("/:id", (req, res) => {
         res.redirect("/login");
     }
 });
+
 
 
 module.exports = router;

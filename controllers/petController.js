@@ -112,7 +112,7 @@ router.get("/zip/:zip", function (req, res) {
     }).then(result => {
         res.send(result)
     })
-})
+});
 
 
 module.exports = router;
