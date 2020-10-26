@@ -80,10 +80,8 @@ router.delete("/:id", (req, res) => {
                     if (results === 0) {
                         res.status(404).send("nothing to delete")
                     } else {
-                        cloudinary.uploader.destroy(result.Pictures.publicId, (err, result) => {
-                            console.log(err, result);
-
-
+                        cloudinary.uploader.destroy(result.Pictures[0].publicId, (err, result) => {
+                            // console.log(err, result);
                         })
                     }
                     res.status(200).json(results)
