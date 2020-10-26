@@ -19,6 +19,11 @@ module.exports = function (sequelize, DataTypes) {
         profilePic: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
+        },
+        publicId: {
+            type: DataTypes.STRING(510),
+            allowNull: true,
+            defaultValue: null,
         }
     });
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models")
+const cloudinary = require('cloudinary').v2;
 
 // Get pics for a given pet
 // Takes as a parameter a pet id and returns all photos of that pet
@@ -52,6 +53,12 @@ router.post("/", (req, res) => {
 // Delete a photo of a pet 
 // Takes the id of a picture and deletes it
 router.delete("/:id", (req, res) => {
+    cloudinary.config({
+        cloud_name: process.env.CLOUDINARY_NAME,
+        api_key: process.env.CLOUDINARY_API_KEY,
+        api_secret: process.env.CLOUDINARY_API_SECRET,
+    });
+
     if (req.session.user) {
         db.Pet.findOne({
             where: {
@@ -72,6 +79,10 @@ router.delete("/:id", (req, res) => {
                 }).then(results => {
                     if (results === 0) {
                         res.status(404).send("nothing to delete")
+                    } else {
+                        cloudinary.uploader.destroy(result.Pictures[0].publicId, (err, result) => {
+                            // console.log(err, result);
+                        })
                     }
                     res.status(200).json(results)
                 }).catch(err => {
@@ -93,7 +104,7 @@ router.put("/:id", (req, res) => {
             },
             include: {
                 model: db.Picture,
-                where: { id: req.params.id}
+                where: { id: req.params.id }
             }
         }).then(result => {
             if (!result) {
