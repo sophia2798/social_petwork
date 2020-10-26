@@ -84,7 +84,7 @@ $("#editUserForm").on("submit", event => {
         first_name: $("#editFirstName").val(),
         last_name: $("#editLastNAme").val(),
         email: $("#editEmail").val(),
-        bio: $("#editBio").val(),
+        bio: $("#editUserBio").val(),
         password: $("#editPassword").val(),
         zip: $("#editZip").val(),
     };
@@ -148,7 +148,3 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#modal1').modal();
 });
-
-
-
-
