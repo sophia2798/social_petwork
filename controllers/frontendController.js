@@ -32,7 +32,7 @@ router.get("/myprofile", (req, res) => {
             include: {model: db.Pet, include:{model:db.Picture}}
         }).then(userData => {
             const userDataJSON = userData.toJSON();
-            // console.log(userDataJSON);
+            console.log(userDataJSON);
             res.render("profile", { user: userDataJSON })
         })
     }
