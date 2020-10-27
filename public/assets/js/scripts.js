@@ -85,7 +85,7 @@ $("#editUserForm").on("submit", event => {
         last_name: $("#editLastNAme").val(),
         email: $("#editEmail").val(),
         bio: $("#editUserBio").val(),
-        password: $("#editPassword").val(),
+        // password: $("#editPassword").val(),
         zip: $("#editZip").val(),
     };
     console.log(editUserObj);
@@ -123,8 +123,8 @@ $(document).ready(function () {
     
     $(".profile-slider").slider({
         indicators: true,
-        interval: 300,
-        duration: 8000
+        interval: 8000,
+        duration: 300
     });
 
     $(".sidenav").sidenav();
