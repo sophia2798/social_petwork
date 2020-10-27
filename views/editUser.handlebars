@@ -3,13 +3,13 @@
         <h4 class="center-align sign-up">{{editUser.first_name}}, Edit Your Profile</h4>
         <form id="editUserForm">
             <input type="text" name="first_name" id="editFirstName" placeholder="First Name"
-                value={{editUser.first_name}}>
-            <input type="text" name="last_name" id="editLastName" placeholder="Last Name" value={{editUser.last_name}}>
-            <input type="text" name="bio" id="editUserBio" placeholder="Bio" value={{editUser.bio}}>
-            <input type="text" name="email" id="editEmail" placeholder="Email" value={{user.email}}>
+                value="{{editUser.first_name}}">
+            <input type="text" name="last_name" id="editLastName" placeholder="Last Name" value="{{editUser.last_name}}">
+            <input type="text" name="bio" id="editUserBio" placeholder="Bio" value="{{editUser.bio}}">
+            <input type="text" name="email" id="editEmail" placeholder="Email" value="{{user.email}}">
             {{!-- <input type="password" name="password" id="editPassword" placeholder="Password" value={{user.password}}> --}}
-            <input type="text" name="zip" id="editZip" placeholder="Zip" value={{editUser.zip}}>
-            <input type="hidden" id="editUser" value={{user.id}}>
+            <input type="text" name="zip" id="editZip" placeholder="Zip" value="{{editUser.zip}}">
+            <input type="hidden" id="editUser" value="{{user.id}}">
             <input type="submit" placeholder="First Name" value="Submit Changes">
         </form>
     </div>
