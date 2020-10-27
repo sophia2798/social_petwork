@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const { Op } = require("sequelize");
 
 router.get('/', (req, res) => {
     const hbsObj = { user: req.session.user }
@@ -43,7 +44,10 @@ router.get("/petwork", function (req, res) {
     if (req.session.user) {
         db.User.findAll({
             where: {
-                zip: req.session.user.zip
+                zip: req.session.user.zip,
+                id:{
+                    [Op.ne]: req.session.user.id
+                }
             },
             attributes: { exclude: ['createdAt', 'updatedAt'] },
             include: {
@@ -57,17 +61,10 @@ router.get("/petwork", function (req, res) {
     // console.log(resultJSON[1].Pets[0].users);
     // console.log(resultJSON[0].Pets[0].users);
     res.render("petwork", { localPet: resultJSON, user: req.session.user });
-    // let pets = [];
-    // for (let i= 0; i < result.length; i++ ){
-    //     for ( let j = 0; j < result[i].dataValues.Pets.length; j++){
-    //         pets.push({pet:result[i].dataValues.Pets[j].dataValues,user:result[i].dataValues})
-    //     }
-    // }
 
     // // console.log(result[1].Pets[0].users[0].Favorite)
     // console.log(result[1].Pets[0].users)
     // // console.log(pets[1].pet.Pictures);
-    //         res.render("petwork", { localPet: pets, user: req.session.user })
         })
     }
     else {

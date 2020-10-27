@@ -32,13 +32,9 @@
                         <p>Hobbies: {{hobbies}}</p>
                     </div>
                     <div class="card-action">
-                        <a class="waves-effect waves-light btn-small favorite-btn" href={{user.email}}>Send email</a>
-                        {{#unless users}}
-                        <a class="waves-effect waves-light btn-small favorite-btn">Favorite</a>
-                        {{/unless}}
-                        {{#if users}}
-                        <a class="waves-effect waves-light btn-small remove-btn">Remove Favorite</a>
-                        {{/if}}
+                        <a class="waves-effect waves-light btn-small email-btn" href="mailto:{{user.email}}">Send email</a>
+                        
+                        <a class="waves-effect waves-light btn-small favorite-btn add-btn" data-pet-id={{id}}>Favorite</a>
                     </div>
                 </div>
                 {{/each}}
@@ -47,3 +43,4 @@
         </div>
     </div>
 </div>
+<script src="/assets/js/petwork.js"></script>
