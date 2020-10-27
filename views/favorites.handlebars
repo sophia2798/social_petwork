@@ -18,11 +18,11 @@
                         <p>Age: {{age}}</p>
                         <p>Breed: {{breed}}</p>
                         <p>Color: {{color}}</p>
-                        <p>Vaccinated: {{vaccinated}}</p>
+                        <p>Vaccinated: {{#if vaccinated}}No{{/if}} {{#unless vaccinated}}Yes{{/unless}}</p>
                         <p>Hobbies: {{hobbies}}</p>
                     </div>
                     <div class="card-action">
-                        <a href={{users.0.email}} class="waves-effect waves-light btn-small favorite-btn" style="margin:0;color:white">Send email</a>
+                        <a href="mailto:{{users.0.email}}" class="waves-effect waves-light btn-small favorite-btn" style="margin:0;color:white">Send email</a>
                     </div>
                 </div>
             {{/each}}
