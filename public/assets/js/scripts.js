@@ -123,8 +123,8 @@ $(document).ready(function () {
     
     $(".profile-slider").slider({
         indicators: true,
-        interval: 300,
-        duration: 8000
+        interval: 8000,
+        duration: 300
     });
 
     $(".sidenav").sidenav();
