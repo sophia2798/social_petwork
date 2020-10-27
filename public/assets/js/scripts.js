@@ -100,6 +100,8 @@ $("#editUserForm").on("submit", event => {
     })
 });
 
+
+
 // // Initialize slider on profile page
 
 // $(document).ready(function() {
