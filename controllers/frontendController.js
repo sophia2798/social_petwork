@@ -58,9 +58,10 @@ router.get("/petwork", function (req, res) {
         }).then(result => {
     //    console.log(result[0].dataValues.id) 
     const resultJSON = result.map(pet => pet.toJSON());
-    console.log(resultJSON[1].Pets);
+    // console.log(resultJSON[1].Pets[0].users);
     // console.log(resultJSON[0].Pets[0].users);
-    res.render("petwork", { localPet: resultJSON, user: req.session.user });
+    // res.render("petwork", { localPet: resultJSON, user: req.session.user });
+    res.json(resultJSON)
 
     // // console.log(result[1].Pets[0].users[0].Favorite)
     // console.log(result[1].Pets[0].users)
