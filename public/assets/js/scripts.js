@@ -85,7 +85,7 @@ $("#editUserForm").on("submit", event => {
         last_name: $("#editLastNAme").val(),
         email: $("#editEmail").val(),
         bio: $("#editUserBio").val(),
-        password: $("#editPassword").val(),
+        // password: $("#editPassword").val(),
         zip: $("#editZip").val(),
     };
     console.log(editUserObj);
